@@ -1,0 +1,332 @@
+  <!-- About Video Model Start -->
+  <div class="modal fade" id="aboutVideoModal" tabindex="-1" aria-labelledby="aboutVideoModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="aboutVideoModalLabel">
+               <span class="model-title-icon"><i class="feather-youtube"></i></span>
+               Samadhi		
+            </h5>
+            <button type="button" class="btn-model-close btn-color" data-bs-dismiss="modal" aria-label="Close">
+               <i class="feather-x"></i>
+            </button>
+         </div>
+         <div class="modal-body">
+            <div class="about-video-block">
+               <iframe class="video-iframe" src="https://www.youtube.com/embed/M6hTC0wrqBU?si=GurmsKXeco_0EmVT" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- About Video Model End -->
+
+ <!-- Body Start -->
+ <div class="wrapper pt-0">
+    <div class="breadcrumb-pt breadcrumb-bg">
+       <div class="container">
+          <div class="row">
+             <div class="col-md-12">
+                <div class="breadcrumb-title" style="text-align: center;">
+                   <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                         <li class="breadcrumb-item"><a routerLink="/">{{translations['home1']}}</a></li>
+                      </ol>
+                   </nav>
+                   <h1 class="title_text">{{translations['home2']}}</h1>	 						
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+    <div class="about-wrapper">
+       <div class="container">
+          <div class="row">
+             <div class="col-lg-6 col-md-12">
+                <div class="about-us-content">
+                          <h2 class="item-title">{{translations['home3']}}</h2>
+                          <p class="pitem-description">
+                           {{translations['home4']}}                               
+                          </p><br>
+                          <p class="pitem-description">
+                           {{translations['home5']}}      
+                          </p>
+                </div>
+             </div>
+             <div class="col-lg-6 col-md-12">
+                <div class="about-img">
+                   <img class="img-about" src="assets/images/about/img1.webp" alt="">
+                   <div class="video-icon">
+                      <button class="play-btn btn-hover" data-bs-toggle="modal" data-bs-target="#aboutVideoModal"><i class="fas fa-play"></i></button>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+    <div class="about-wrapper bg-white">
+       <div class="container">
+          <div class="row">
+             <div class="col-lg-12 col-md-12">
+                <div class="about-us-content text-center process-title">
+                          <h2 class="item-title">{{translations['home6']}}</h2>
+                </div>
+             </div>
+             <div class="col-lg-3 col-md-4 col-sm-4">
+                <div class="progress-block">
+                   <div class="progress-title">70+</div>
+                   <div class="progress-subtitle">{{translations['home7']}}</div>
+                </div>
+             </div>
+             <div class="col-lg-3 col-md-4 col-sm-4">
+                <div class="progress-block">
+                   <div class="progress-title">9+</div>
+                   <div class="progress-subtitle">{{translations['home8']}}</div>
+                </div>
+             </div>
+             <div class="col-lg-3 col-md-4 col-sm-4">
+                <div class="progress-block">
+                   <div class="progress-title">24/7</div> 
+                   <div class="progress-subtitle">{{translations['home9']}}</div>
+                </div>
+             </div>
+             <div class="col-lg-3 col-md-4 col-sm-4"> 
+                <div class="progress-block">
+                   <div class="progress-title">11+</div> 
+                   <div class="progress-subtitle">{{translations['home10']}}</div>
+                </div>
+             </div>
+              
+          </div>
+       </div>
+    </div>
+    <div class="about-wrapper">
+       <div class="container">
+          <div class="row">
+             <div class="col-lg-12 col-md-12">
+                <div class="about-us-content text-center process-title mb-50">
+                          <h2 class="item-title">{{translations['home11']}}</h2>
+                </div>
+             </div>
+             <div class="col-lg-6 col-md-12">
+                <div class="about-us-content">
+                  <p class="pitem-description">
+                     {{translations['home12']}}
+                 </p><br>
+                 <p class="pitem-description">
+                  {{translations['home13']}}
+                </p>
+                    
+                   <a routerLink="/contact" class="main-link-btn btn-hover">{{translations['home14']}}</a>
+                </div>
+             </div>
+             <div class="col-lg-6 col-md-12">
+                <div class="about-img">
+                   <img class="img-about" src="assets/images/about/img2.webp" alt="">
+                </div>
+             </div>
+             
+          </div>
+       </div>
+    </div>
+ </div>
+ <!-- Body End -->
+ 
+ 
+ 
+ 
+ 
+ <!--
+ 
+ <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+ 
+ 
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">My App</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div   class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" (click)="onOpenModal(null, 'add')">Add new user <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input ngModel #keyword="ngModel" class="form-control mr-sm-2" (ngModelChange)="searchUsers(keyword.value)" name="keyword" type="search" placeholder="Search" aria-label="Search">
+    </form>
+  </div>
+ </nav>
+ 
+ <div style="margin-top: 40px;" class="container" id="main-container">
+  <div class="row">
+      <div *ngFor="let user of users" class="col-md-6 col-xl-3">
+          <div class="card m-b-30">
+              <div class="card-body row">
+                  <div class="col-6">
+                      <a href=""><img src="{{user?.profilePhoto}}" alt="" class="img-fluid rounded-circle w-60"></a>
+                  </div>
+                  <div class="col-6 card-title align-self-center mb-0">
+                      <h5>{{user?.username}}</h5>
+                      <p class="m-0">{{user?.role}}</p>
+                  </div>
+              </div>
+              <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><i class="fa fa-envelope float-right"></i>Email : <a href="#">{{user?.email}}</a></li>
+                  <li class="list-group-item"><i class="fa fa-phone float-right"></i>Phone : 000 123-456</li>
+              </ul>
+              <div class="card-body">
+                  <div class="float-right btn-group btn-group-sm">
+                      <a (click)="onOpenModal(user, 'edit')" href="#" class="btn btn-primary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+                      <a (click)="onOpenModal(user, 'delete')" href="#" class="btn btn-secondary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                  </div>
+                  <ul class="social-links list-inline mb-0">
+                      <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-facebook-f"></i></a></li>
+                      <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                      <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Skype"><i class="fa fa-skype"></i></a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>        
+  </div>
+ </div>
+ 
+ 
+ 
+ <div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+       <div class="modal-header">
+          <h5 class="modal-title" id="addUserModalLabel">Add User</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+       </div>
+       <div class="modal-body">
+          <form #addForm="ngForm" (ngSubmit)="onAddUser(addForm)">
+          <div class="form-group">
+             <label for="username">Username</label>
+             <input type="text" ngModel name="username" class="form-control" id="username" placeholder="Username" required>
+          </div>
+          <div class="form-group">
+             <label for="email">Email</label>
+             <input type="email" ngModel name="email" class="form-control" id="email" placeholder="Email" required>
+          </div>
+          <div class="form-group">
+             <label for="password">Password</label>
+             <input type="password" ngModel name="password" class="form-control" id="password" placeholder="Password" required>
+          </div>
+          <div class="form-group">
+             <label for="role">Role</label>
+             <input type="text" ngModel name="role" class="form-control" id="role" placeholder="Role" required>
+          </div>
+          <div class="form-group">
+             <label for="profilePhoto">Image URL</label>
+             <input type="text" ngModel name="profilePhoto" class="form-control" id="profilePhoto" placeholder="Profile photo" required>
+          </div>
+          <div class="form-group">
+             <label for="preferredLanguage">Langage</label>
+             <input type="text" ngModel name="preferredLanguage" class="form-control" id="preferredLanguage" placeholder="Langage" required>
+          </div>
+          <div class="modal-footer">
+             <button type="button" id="add-user-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
+          </div>
+          </form>
+       </div>
+    </div>
+  </div>
+ </div>
+ 
+ 
+ 
+ 
+ <div class="modal fade" id="updateUserModal" tabindex="-1" role="dialog" aria-labelledby="userEditModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+     <div class="modal-content">
+        <div class="modal-header">
+           <h5 class="modal-title" id="updateUserModalLabel">Edit user {{editUser?.username}}</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+           </button>
+        </div>
+        <div class="modal-body">
+           <form #editForm="ngForm">
+              
+              <input type="hidden" ngModel="{{editUser?.id}}" name="id" class="form-control" id="id">
+ 
+              <div class="form-group">
+                 <label for="username">Username</label>
+                 <input type="text" ngModel="{{editUser?.username}}" name="username" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Username">
+              </div>          
+              <div class="form-group">
+                 <label for="email">Email</label>
+                 <input type="email" ngModel="{{editUser?.email}}" name="email" class="form-control" id="email" placeholder="Email">
+              </div>
+              <div class="form-group">
+                 <label for="password">Password</label>
+                 <input type="password" ngModel="{{editUser?.password}}" name="password" class="form-control" id="password" placeholder="Password">
+              </div>
+              <div class="form-group">
+                 <label for="role">Role</label>
+                 <input type="text" ngModel="{{editUser?.role}}" name="role" class="form-control" id="role" name="role" placeholder="Role">
+              </div>
+              <div class="form-group">
+                 <label for="profilePhoto">Profile Photo</label>
+                 <input type="text" ngModel="{{editUser?.profilePhoto}}" name="profilePhoto" class="form-control" id="profilePhoto" placeholder="Profile Photo">
+              </div>
+              <div class="form-group">
+                 <label for="preferredLanguage">Preferred Language</label>
+                 <input type="text" ngModel="{{editUser?.preferredLanguage}}" name="preferredLanguage" class="form-control" id="preferredLanguage" placeholder="Preferred Language">
+              </div>
+              <div class="modal-footer">
+                 <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                 <button (click)="onUpdateUser(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+              </div>
+           </form>
+        </div>
+     </div>
+  </div>
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ <div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+     <div class="modal-content">
+        <div class="modal-header">
+           <h5 class="modal-title" id="deleteModelLabel">Delete User</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+           </button>
+        </div>
+        <div class="modal-body">
+           <p>Are you sure you want to delete user {{deleteUser?.username}}?</p>
+           <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+              <button (click)="onDeleteUser(deleteUser!.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
+           </div>
+        </div>
+     </div>
+  </div>
+ </div>
+ 
+ 
+ 
+ 
+ 
+ <div *ngIf="users?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+ <div class="alert alert-info" role="alert">
+  <h4 class="alert-heading">NO users!</h4>
+  <p>No users were found.</p>
+ </div>
+ </div>
+ 
+ 
+ -->
+ 
+ 

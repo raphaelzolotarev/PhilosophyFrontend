@@ -1,0 +1,148 @@
+
+  
+
+ <!-- Header Start -->
+ <header class="header clearfix">
+    <div class="header-inner">
+       <nav class="navbar navbar-expand-lg bg-micko micko-head justify-content-sm-start micko-top pt-0 pb-0 px-2 px-lg-4">
+          <div class="container">	
+             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <span class="micko-toggler-icon">
+                   <i class="feather-menu"></i>
+                </span>
+             </button>
+             <a class="navbar-bran ms-lg-0 ml-2 me-auto" routerLink="/">
+                <div class="res_main_logo">
+                   <img src="assets/images/logo.svg" alt="">
+                </div>
+                <div class="main_logo" id="logo">
+                   <img src="assets/images/logo.svg" alt="">
+                   <img class="logo-inverse" src="assets/images/dark-logo.png" alt="">
+                </div>
+             </a>
+             <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                   <div class="offcanvas-logo" id="offcanvasNavbarLabel">
+                      <img src="assets/images/logo.svg" alt="">
+                   </div>
+                   <button type="button" class="close-btn btn-color" data-bs-dismiss="offcanvas" aria-label="Close">
+                      <i class="feather-x"></i>
+                   </button>
+                </div>
+                <div class="offcanvas-body">
+                   <div class="offcanvas-search">
+                      <form class="search-form-header">
+                         <input class="search-form-control" type="search" placeholder="{{translations['searchbar']}}" aria-label="Search">
+                         <button class="search-btn btn-color btn-hover"><i class="feather-search"></i></button>
+                      </form>
+                   </div>
+                   <ul class="navbar-nav justify-content-end flex-grow-1 pe_5">
+                      <li class="nav-item">
+                         <a class="nav-link active" aria-current="page" routerLink="/blog">
+                            <span class="nav-icon d-lg-none">
+                               <i class="feather-home"></i>
+                            </span>
+                            Blog
+                         </a>
+                      </li>
+                      <li class="nav-item">
+                         <a class="nav-link" routerLink="/community">
+                            <span class="nav-icon d-lg-none">
+                               <i class="feather-briefcase"></i>
+                            </span>
+                            {{translations['menu1']}}
+                         </a>
+                      </li>
+                      <li class="nav-item dropdown">
+                         <a class="nav-link custom-d-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-icon d-lg-none">
+                               <i class="feather-list"></i>
+                            </span>
+                            <i class="fa-solid fa-globe"></i> {{translations['menu2']}}<i class="fas fa-caret-down ms-2 d-none d-lg-inline-block"></i>
+                         </a>
+                         
+
+                         <ul class="dropdown-menu dropdown-submenu pages-dropdown dropdown-menu-end">
+                           <li>
+                              <a class="dropdown-item submenu-item language" id="EN" href="#" (click)="onLanguageClick('EN')">English <i *ngIf="preferredLanguage === 'EN'" class="fa-solid fa-check"></i></a>                               
+                           </li>
+                           <li>
+                              <a class="dropdown-item submenu-item language" id="FR" href="#" (click)="onLanguageClick('FR')">Français <i *ngIf="preferredLanguage === 'FR'" class="fa-solid fa-check"></i></a>                               
+                           </li>
+                           <li>
+                              <a class="dropdown-item submenu-item language" id="NL" href="#" (click)="onLanguageClick('NL')">Nederlands <i *ngIf="preferredLanguage === 'NL'" class="fa-solid fa-check"></i></a>                               
+                           </li>
+                         </ul> 
+                      </li>
+                   </ul>
+                </div>
+                <div class="offcanvas-footer">
+                   <div class="micko-copyright">
+                      <p><i class="fas fa-copyright"></i>2022 Micko by <a href="#">Gambolthemes</a>. All Right Reserved.</p>
+                   </div>
+                </div>
+             </div>
+             <div class="msg-noti-acnt-section order-2">
+                <ul class="mn-icons-set ms-3 align-self-stretch">
+
+                  <!--no account-->
+                  <div *ngIf="!isAuthenticated">
+                     <li class="mn-icon">
+                        <a routerLink="/signin" class="main-link-btn btn-hover" style="margin-top: 0px; background: #333;">{{translations['menu3']}}</a>						
+                     </li> 
+                     <li class="mn-icon">
+                        <a routerLink="/signup" class="main-link-btn btn-hover" style="margin-top: 0px; background: #0d6efd">{{translations['menu4']}}</a>						
+                     </li> 
+                  </div>
+
+                  <!--logged-->
+                  <div *ngIf="isAuthenticated">
+                   <li class="mn-icon">
+                     <a class="mn-link" routerLink="/messages" role="button">
+                        <i class="feather-message-square"></i>
+                        <div class="alert-circle"></div>
+                     </a>							
+                   </li> <!----->
+                   <li class="mn-icon dropdown dropdown-account ms-4">
+                      <a href="#" class="opts_account" role="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                         <img src="assets/images/left-imgs/img-1.jpg" alt="">
+                         <i class="fas fa-caret-down arrow-icon"></i>
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-account dropdown-menu-end" aria-labelledby="dropdownMenuClickableInside">
+                         <li class="media-list">
+                            <div class="night_mode_switch__btn">
+                               <a href="#" id="night-mode" class="btn-night-mode">
+                                  <i class="far fa-moon"></i>Night mode
+                                  <span class="btn-night-mode-switch">
+                                     <span class="uk-switch-button"></span>
+                                  </span>
+                               </a>
+                            </div>
+                            <a routerLink="/profile" class="item ac_item channel_item mt-2"><i class="feather-grid"></i>Profile</a>
+                            <a routerLink="/settings" class="item ac_item channel_item"><i class="feather-settings"></i>Setting</a>
+                            <a routerLink="/privacy" class="item ac_item channel_item"><i class="feather-shield"></i>Privacy</a>		
+                            <a routerLink="/createpost" class="item ac_item channel_item"><i class="fa-regular fa-comments" style="margin-right:12px;"></i>New topic</a> 
+
+                            <a *ngIf="role === 'ADMIN'" routerLink="/createpost" class="item ac_item channel_item"><i class="feather-plus-circle"></i>Create a post</a>
+                            
+                            
+                         </li>
+                         <li class="dropdown-menu-footer">
+                            <a class="dropdown-item-link text-link text-center" routerLink="/logout">Logout</a>
+                         </li>
+                      </ul>
+                   </li>
+                   </div>
+
+
+                </ul>
+
+
+             </div>
+
+          </div>
+       </nav>
+       <div class="overlay"></div>
+    </div>
+ </header>
+ <!-- Header End -->
