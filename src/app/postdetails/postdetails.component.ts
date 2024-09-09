@@ -4,8 +4,6 @@ import { CommonModule } from '@angular/common';
 import { TRANSLATION_EN } from '../translation';
 import { TranslationService } from '../translation.service';
 import { AuthenticationService } from '../authentication.service';
-import { UserService } from '../user.service';
-import { User } from '../user';
 import { PostService } from '../post.service';
 import { Post } from '../post';
 import { LikeService } from '../like.service';
@@ -20,10 +18,11 @@ import { Comment } from '../comment';
   templateUrl: './postdetails.component.html',
   styleUrl: './postdetails.component.scss'
 })
+
 export class PostdetailsComponent {
 
   public post: any = null;
-  public popularPost: any = null;
+  public popularPost: Post[] | null = null;
   public likes: any = null;
   public comments: any = null;
   public user: any = null;
@@ -34,34 +33,42 @@ export class PostdetailsComponent {
 
   constructor(private likeService : LikeService, private commentService : CommentService, private authenticationService : AuthenticationService, private postService: PostService, private translationService: TranslationService, private route: ActivatedRoute, private router: Router) {
     
-    this.postService.getRecentPosts().subscribe(posts => {this.popularPost = posts;}); 
+    this.postService.getRecentPosts().subscribe(posts => {this.popularPost = posts;});
   }
 
   ngOnInit() {
+    this.postService.getRecentPosts().subscribe({
+      next: (posts) => {
+        this.popularPost = posts;  // Assign the fetched posts
+      },
+      error: (err) => {
+        console.error('Error fetching popular posts:', err);
+        this.popularPost = [];  // In case of error, set it to an empty array
+      }
+    });
     this.route.paramMap.subscribe(params => {
         this.postId = params.get('id'); 
         if (this.postId) {
-            // Clear previous post data
+
             this.post = null;
             this.likes = [];
             this.comments = [];
-            this.userLikedPost = false; // Reset userLikedPost to avoid showing the previous post's state
+            this.userLikedPost = false;
 
-            // Fetch the post data
             this.postService.getPost(Number(this.postId)).subscribe({
                 next: (post: Post) => {
-                    this.post = post; 
+                    this.post = post;                     
                 },
                 error: (error) => {
                     this.router.navigate(['/blog']);
                 }
             });
 
-            // Fetch likes for the specific post
+            
+
             this.likeService.getLikesByPostId(Number(this.postId)).subscribe({
                 next: (response: Like[]) => {
                     this.likes = response;
-                    // Check if the user has already liked the post after likes are fetched
                     if (this.isAuthenticated && this.user) {
                         this.userLikedPost = this.likes.some((like: Like) => like.user.id === this.user.id);
                     }
@@ -71,7 +78,8 @@ export class PostdetailsComponent {
                 }
             });
 
-            // Fetch comments for the specific post
+
+            
             this.commentService.getCommentsByPostId(Number(this.postId)).subscribe({
                 next: (response: Comment[]) => {
                     this.comments = response;
@@ -80,10 +88,12 @@ export class PostdetailsComponent {
                     console.error('Error fetching comments:', err);
                 }
             });
+
+
+            
         }
     });
 
-    // Handle authentication and user-related data
     this.authenticationService.isInitialized$.subscribe((isInitialized) => {
         if (isInitialized) {
             this.authenticationService.isAuthenticated$.subscribe(isAuthenticated => {
@@ -91,17 +101,34 @@ export class PostdetailsComponent {
             }); 
             this.authenticationService.userInfo$.subscribe(userInfo => {
                 this.user = userInfo;
-                // Recheck likes when user info is loaded
                 if (this.likes) {
                     this.userLikedPost = this.likes.some((like: Like) => like.user.id === this.user.id);
                 }
             });
-            this.translationService.translations$.subscribe(translations => this.translations = translations);            
+            this.translationService.translations$.subscribe(translations => this.translations = translations);    
+                    
         }
     });
 
-    // Fetch popular posts
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -145,8 +172,6 @@ export class PostdetailsComponent {
       }
     });
   }
-
-
 
 
   //COMMENT POST

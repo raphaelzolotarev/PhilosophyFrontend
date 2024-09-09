@@ -16,8 +16,10 @@
                                         <h3 class="item-user-title">{{profileInfo.username}}</h3>
                                         
                                         
-                                        <ul class="user-meta-btns">
+                                        <ul *ngIf="isAuthenticated" class="user-meta-btns">
+                                            <!--
                                             <li><a href="#" class="profile-edit-btn btn-hover"><i class="feather-edit me-2"></i>Message</a></li>
+                                            -->
                                             <li><a *ngIf="!isUserFollowed(profileInfo.id)" (click)="followUser(profileInfo.id)" class="profile-edit-btn btn-hover"><i class="feather-user-plus me-2"></i>Follow</a></li>
                                             <li><a *ngIf="isUserFollowed(profileInfo.id)" (click)="unFollowUser(profileInfo.id)" class="profile-edit-btn btn-hover"><i class="feather-user-minus me-2"></i>Unfollow</a></li>
                                   
@@ -270,7 +272,7 @@
                                         </span>
                                         <span class="oflst126"><i class="fa-solid fa-tag"></i> {{like.post.category}}</span>
                                     </p>
-                                    <a [routerLink]="['/postdetails', like.post.id]"><button  class="act-btn btn-hover" type="button"><i class="feather-edit me-2" ></i>See post</button></a>
+                                    <a [routerLink]="['/postdetails', like.post.id]"><button  class="act-btn btn-hover" type="button"><i class="feather-edit me-2" ></i>{{translations['myprofile23']}}</button></a>
                                 </div>
                             </div>
                             

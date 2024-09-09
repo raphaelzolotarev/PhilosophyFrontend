@@ -50,8 +50,6 @@ export class PostService {
   public deletePost(postID: number): Observable<void>{
     return this.http.delete<void>(`${this.apiServerUrl}/posts/delete/${postID}`);
   }
-
-
   
   //LIKE
   public likePost(postID: number, userID: number): Observable<void>{
@@ -61,7 +59,6 @@ export class PostService {
   public dislikePost(postID: number, userID: number): Observable<void>{
     return this.http.post<void>(`${this.apiServerUrl}/posts/dislike/${postID}`, null, { params: { userId: userID.toString() }});
   }
-
   
   //COMMENT
   public comentPost(postID: number, userID: number, text: string): Observable<void>{
@@ -71,7 +68,6 @@ export class PostService {
   public uncommentPost(commentId: number): Observable<void>{
     return this.http.post<void>(`${this.apiServerUrl}/posts/uncomment/${commentId}`, {});
   }
-
 
   //SEARCH BAR
   public searchPosts(keyword: String): Observable<Post[]>{

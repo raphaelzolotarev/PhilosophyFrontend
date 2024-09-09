@@ -15,12 +15,10 @@ import { AuthenticationService } from '../authentication.service';
 })
 export class SigninComponent {
 
-  isPasswordVisible: boolean = false;
-  
+  isPasswordVisible: boolean = false;  
   username: string = '';
   password: string = '';
   public isAuthenticated: boolean = false;
-
   public translations: { [key: string]: string }  = TRANSLATION_EN;
 
   constructor(private translationService: TranslationService, private router: Router, private authenticationService: AuthenticationService) {     }

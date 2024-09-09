@@ -4,11 +4,8 @@ import { CommonModule } from '@angular/common';
 import { TRANSLATION_EN } from '../translation';
 import { TranslationService } from '../translation.service'
 import { UserService } from '../user.service';
-import { User } from '../user';
 import { AuthenticationService } from '../authentication.service';
 import { PostService } from '../post.service';
-import { Post } from '../post';
-import { HttpErrorResponse } from '@angular/common/http';
 import { FormsModule } from '@angular/forms'; 
 
 @Component({
@@ -18,6 +15,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
 })
+
 export class MenuComponent {
 
   //user status
@@ -57,7 +55,6 @@ export class MenuComponent {
     });
   }
 
-
   //LOGOUT
   public onLogoutClick(): void{
       this.authenticationService.logout();
@@ -65,7 +62,6 @@ export class MenuComponent {
         window.location.reload();
       });
   }
-
 
   //NIGHT MODE
   toggleNightMode() {
@@ -82,7 +78,6 @@ export class MenuComponent {
         localStorage.setItem('gmtNightMode', 'false');
     }
   }
-
 
   searchPosts(keyword: string | null): void {
     if (keyword == null) keyword = "";

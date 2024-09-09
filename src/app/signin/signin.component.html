@@ -27,10 +27,10 @@
                                     <input class="reg_form_input_1" [(ngModel)]="username"  name="username" type="text" placeholder="" value="" required>																								
                                 </div>
                                 <div class="form_group mt-25">
-                                    <div class="field_password">
+                                    <!--<div class="field_password">
                                         <label class="label25">{{translations['signin5']}}*</label>
                                         <a class="FieldPassword__link" href="forgot_password.html">{{translations['signin6']}}</a>
-                                    </div>
+                                    </div>-->
                                     <div class="loc_group">
                                         <input class="reg_form_input_1" [(ngModel)]="password" id="password" name="password" type="password" placeholder="" required>
                                         <span id="showpass" class="pass_show_dt cursor" (click)="togglePasswordVisibility()">
@@ -40,7 +40,7 @@
                                 </div>
                                 <button class="btn-register btn-hover" type="submit" [disabled]="loginForm.invalid">{{translations['signin7']}} <i class="feather-log-in ms-2"></i></button>
                             </form>
-                            <div class="registration_line">
+                            <!--<div class="registration_line">
                                 <span class="registration_linetext">{{translations['signin8']}}</span>
                             </div>
                             <div class="social_buttons">
@@ -50,7 +50,7 @@
                                         <span class="google_login__text">{{translations['signin9']}}</span>
                                     </button>
                                 </div>
-                            </div>
+                            </div>-->
                         </div>							
                     </div>
                 </div>

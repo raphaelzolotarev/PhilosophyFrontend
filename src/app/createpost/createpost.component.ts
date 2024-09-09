@@ -45,22 +45,16 @@ export class CreatepostComponent {
         //only admin has access
         if(this.userInfo.role == 'USER'){
           this.router.navigate(['/']);
-        }
-
-        
+        }        
         this.author = this.userInfo;
-
-        console.log(this.author);
       }            
     });    
   }
 
     //CREATE NEW POST
     public onAddPost(addForm: NgForm): void{
-      //1. create post
       this.postService.addPost(addForm.value).subscribe({
         next: (response: Post) => {
-            //2. redirect to blog page
             this.router.navigate(['/blog']).then(() => {
               window.location.reload();
               window.scrollTo({ top: 0, behavior: 'smooth' });

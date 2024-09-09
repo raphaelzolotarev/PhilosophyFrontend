@@ -7,7 +7,7 @@
                     <div class="breadcrumb-title">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+                                <li class="breadcrumb-item"><a routerLink="/">{{translations['post1']}}</a></li>
                                 <li class="breadcrumb-item"><a routerLink="/blog">Blog</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">{{post.title}}</li>
                             </ol>
@@ -40,13 +40,13 @@
                                             </div>
                                         </div>
                                         <div class="pull-right-blog-info">
-                                            <span class="views">{{comments.length}} Comments</span>
+                                            <span class="views">{{comments.length}} {{translations['post4']}}</span>
                                             <span  class="middot">·</span>
-                                            <span  class="views">{{ likes.length }} Likes</span>
-                                            <button *ngIf="isAuthenticated && !userLikedPost" (click)="like(post.id, user.id)" class="react-button__trigger action-btn"><i class="feather-thumbs-up icon-mr"></i>Like</button>
-                                            <button *ngIf="isAuthenticated && userLikedPost" (click)="dislike(post.id, user.id)" class="react-button__trigger action-btn"><i class="feather-thumbs-up icon-mr"></i>Dislike</button>
-                                            <a *ngIf="isAuthenticated && user.role === 'ADMIN'"  [routerLink]="['/editpost', post.id]"><button  class="react-button__trigger action-btn"><i class="feather-edit icon-mr"></i>Edit</button></a>
-                                            <button *ngIf="isAuthenticated && user.role === 'ADMIN'" (click)="delete(post.id)" class="react-button__trigger action-btn"><i class="feather-trash icon-mr"></i>Delete</button>
+                                            <span  class="views">{{ likes.length }} {{translations['post5']}}</span>
+                                            <button *ngIf="isAuthenticated && !userLikedPost" (click)="like(post.id, user.id)" class="react-button__trigger action-btn"><i class="feather-thumbs-up icon-mr"></i>{{translations['post6']}}</button>
+                                            <button *ngIf="isAuthenticated && userLikedPost" (click)="dislike(post.id, user.id)" class="react-button__trigger action-btn"><i class="feather-thumbs-up icon-mr"></i>{{translations['post7']}}</button>
+                                            <a *ngIf="isAuthenticated && user.role === 'ADMIN'"  [routerLink]="['/editpost', post.id]"><button  class="react-button__trigger action-btn"><i class="feather-edit icon-mr"></i>{{translations['post8']}}</button></a>
+                                            <button *ngIf="isAuthenticated && user.role === 'ADMIN'" (click)="delete(post.id)" class="react-button__trigger action-btn"><i class="feather-trash icon-mr"></i>{{translations['post9']}}</button>
 
                                         </div>
                                     </div>
@@ -65,14 +65,14 @@
                     <div id="commentsection" class="full-width">
                         <div class="headtte14m">
                             <span><i class="feather-message-square"></i></span>
-                            <h4>{{comments.length}} Comments</h4>
+                            <h4>{{comments.length}} {{translations['post4']}}</h4>
                         </div>
                         <div class="blog-comment-block">
                             <div *ngIf="isAuthenticated" class="post-commet-textarea">
                                 <div class="post-base-1 post_comment_combo">
                                     <img src="{{user.profilePhoto}}" alt="">
                                     <div class="post-base-1">
-                                        <textarea #commentText class="auto-resize comment-textarea textarea" placeholder="Write a comment" autocomplete="off"></textarea>																						
+                                        <textarea #commentText class="auto-resize comment-textarea textarea" placeholder="{{translations['post11']}}" autocomplete="off"></textarea>																						
                                     </div>
                                     <button (click)="comment(post.id, user.id, commentText.value)" class="post-btn btn-hover" type="button">
                                         <i class="feather-send"></i>
@@ -92,7 +92,7 @@
                                         <p>{{comment.text}}</p>
                                         <div class="inline-itms">
                                             <span>{{ comment.createdAt | date:'dd/MM/yyyy HH:mm' }}</span>
-                                            <span *ngIf="user.role == 'ADMIN' || (comment.user.id === user.id)" (click)="uncomment(comment.id)"><i class="fa-solid fa-trash"></i></span>
+                                            <span *ngIf="user && (user.role == 'ADMIN' || (comment.user.id === user.id))" (click)="uncomment(comment.id)"><i class="fa-solid fa-trash"></i></span>
                                         </div>
                                     </div>
                                 </div>                                								
@@ -105,19 +105,21 @@
                     <div class="event-card ">
                         <div class="headtte14m">
                             <span><i class="feather-list"></i></span>
-                            <h4>Popular Posts</h4>
+                            <h4>{{translations['post2']}}</h4>
                         </div>
                         <div class="blog-list__sections">
-                            <ul class="blog-posts__sections p-0">
+                            <ul class="blog-posts__sections p-0" *ngIf="popularPost">
+
                                 <li *ngFor="let post of popularPost" class="popular-post-container ember-view">
                                     <a routerLink="/postdetails/{{post.id}}" class="blog-popular-post">
                                         <img class="blog-post-image" src="{{post.imageUrl}}" alt="">
                                         <div class="blog-post-detail">
                                             <h4 class="blog-post-title">{{post.title}}</h4>
-                                            <span class="blog-author-name ">by <ins>{{post.author.username}}</ins></span>
+                                            <span class="blog-author-name ">{{translations['post10']}} <ins>{{post.author.username}}</ins></span>
                                         </div>
                                     </a>
                                 </li>
+
                                 
                             </ul>
                         </div>
@@ -125,14 +127,14 @@
                     <div class="event-card mt-30">
                         <div class="headtte14m">
                             <span><i class="feather-tag"></i></span>
-                            <h4>Categories</h4>
+                            <h4>{{translations['post3']}}</h4>
                         </div>
                         <div class="srchinvteus">
                             <a [routerLink]="['/blog']" [queryParams]="{ tag: 'Zen' }" class="product-features-tags">Zen</a>
                             <a [routerLink]="['/blog']" [queryParams]="{ tag: 'Tao' }" class="product-features-tags">Tao</a>
                             <a [routerLink]="['/blog']" [queryParams]="{ tag: 'Yoga' }" class="product-features-tags">Yoga</a>
                             <a [routerLink]="['/blog']" [queryParams]="{ tag: 'Advaita Vedenta' }" class="product-features-tags">Advaita Vedenta</a>
-                            <a [routerLink]="['/blog']" [queryParams]="{ tag: 'Philosophy' }" class="product-features-tags">Philosophy</a>
+                            <a [routerLink]="['/blog']" [queryParams]="{ tag: 'Philosophy' }" class="product-features-tags">{{translations['editpost12']}}</a>
                             <a [routerLink]="['/blog']" [queryParams]="{ tag: 'Theravada' }" class="product-features-tags">Theravada</a>
                         </div>
                     </div>

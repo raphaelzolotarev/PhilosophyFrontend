@@ -26,9 +26,7 @@ export class CommunityComponent {
   public translations: { [key: string]: string }  = TRANSLATION_EN;
 
   constructor(private userService: UserService, private router: Router, private translationService: TranslationService, private authenticationService : AuthenticationService) {   
-
-    
-     }
+}
 
   ngOnInit() { 
 
@@ -85,7 +83,6 @@ export class CommunityComponent {
     return this.userInfo?.following?.some((user: any) => user.id === userId);
   }
 
-
   //search 
   searchUsers(keyword: string | null): void {
     if(keyword == null) keyword="";
@@ -98,9 +95,5 @@ export class CommunityComponent {
       }
     });
   }
-
-
-
-
 }
 

@@ -11,10 +11,8 @@ import { environment } from "../environments/environment";
 export class LikeService {
   
   private apiServerUrl = environment.apiBaseUrl;
-
   private isInitialized = new BehaviorSubject<boolean>(false);
   public isInitialized$ = this.isInitialized.asObservable();
-
   constructor(private http: HttpClient) { }
 
   //GET LIKES BY POST ID

@@ -15,7 +15,6 @@ import { TranslationService } from '../translation.service';
 export class FooterComponent {
 
   public currentYear: number = new Date().getFullYear();
-
   public translations: { [key: string]: string }  = TRANSLATION_EN;
 
   constructor(private translationService: TranslationService) {    

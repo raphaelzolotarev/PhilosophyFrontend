@@ -19,13 +19,13 @@ export class BlogComponent {
 
   public allPosts: any = null;
   public translations: { [key: string]: string }  = TRANSLATION_EN;
+
   constructor(private route: ActivatedRoute, private postService: PostService, private translationService: TranslationService) {
     this.translationService.translations$.subscribe(translations => this.translations = translations);     
-        this.postService.getPosts().subscribe(posts => {this.allPosts = posts;});
+    this.postService.getPosts().subscribe(posts => {this.allPosts = posts;});
   }
 
   ngOnInit() {
-
         this.route.queryParams.subscribe(params => {
           const keyword = params['search'];
           if (keyword) {

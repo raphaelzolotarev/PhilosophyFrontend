@@ -67,11 +67,8 @@ export class EditpostComponent {
         //only admin has access
         if(this.userInfo.role == 'USER'){
           this.router.navigate(['/']);
-        }
-        
+        }        
         this.author = this.userInfo;
-
-        console.log(this.author);
       }            
     });    
   }

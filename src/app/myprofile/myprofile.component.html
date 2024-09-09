@@ -203,7 +203,9 @@
                                             </p>
                                         </div>
                                         <div class="media-btns">
+                                            <!--
                                             <button type="button" class="accpt-btn btn-hover accpt-btn-clr msgngup">{{translations['myprofile10']}}</button>
+                                            -->
                                             <button (click)="unFollowUser(followingUser.id)" type="button" class="rcancel-btn" ><i class="feather-user-minus"></i></button>
                                         </div>
                                     </div>
@@ -243,7 +245,9 @@
                                             </p>
                                         </div>
                                         <div class="media-btns">
+                                            <!--
                                             <button type="button" class="accpt-btn btn-hover accpt-btn-clr msgngup">{{translations['myprofile10']}}</button>
+                                            -->
                                             <button *ngIf="!isUserFollowed(followerUser.id)" (click)="followUser(followerUser.id)" type="button" class="rcancel-btn" ><i class="feather-user-plus"></i></button>
                                         </div>
                                     </div>
@@ -275,7 +279,7 @@
                                         </span>
                                         <span class="oflst126"><i class="fa-solid fa-tag"></i> {{like.post.category}}</span>
                                     </p>
-                                    <button (click)="dislike(like.post.id, userInfo.id)" class="act-btn btn-hover" type="button"><i class="feather-thumbs-down me-2" ></i>Dislike</button>
+                                    <button (click)="dislike(like.post.id, userInfo.id)" class="act-btn btn-hover" type="button"><i class="feather-thumbs-down me-2" ></i>{{translations['myprofile21']}}</button>
                                 </div>
                             </div>
                             
@@ -306,7 +310,7 @@
                                             </span>
                                             <span class="oflst126"><i class="fa-solid fa-tag"></i> {{post.category}}</span>
                                         </p>
-                                        <a [routerLink]="['/editpost', post.id]"><button  class="act-btn btn-hover" type="button"><i class="feather-edit me-2" ></i>Edit post</button></a>
+                                        <a [routerLink]="['/editpost', post.id]"><button  class="act-btn btn-hover" type="button"><i class="feather-edit me-2" ></i>{{translations['myprofile22']}}</button></a>
                                     </div>
                                 </div>
                                 

@@ -98,12 +98,15 @@
 
                   <!--logged-->
                   <div *ngIf="isAuthenticated">
-                   <li class="mn-icon">
-                     <a class="mn-link" routerLink="/messages" role="button">
-                        <i class="feather-message-square"></i>
-                        <div class="alert-circle"></div>
-                     </a>							
-                   </li> <!----->
+                     <!--
+                     <li class="mn-icon">
+                        <a class="mn-link" routerLink="/messages" role="button">
+                           <i class="feather-message-square"></i>
+                           <div class="alert-circle"></div>
+                        </a>							
+                     </li> 
+                     -->
+                   <!----->
                    <li class="mn-icon dropdown dropdown-account ms-4">
                       <a href="#" class="opts_account" role="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                          <img src="{{userInfo.profilePhoto}}" style="width: 40px; height: 40px;" alt="">
