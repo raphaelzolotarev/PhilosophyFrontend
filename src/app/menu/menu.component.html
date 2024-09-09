@@ -32,13 +32,14 @@
                 <div class="offcanvas-body">
                    <div class="offcanvas-search">
                       <form class="search-form-header">
-                         <input class="search-form-control" type="search" placeholder="{{translations['searchbar']}}" aria-label="Search">
+                         <input ngModel #keyword="ngModel" (ngModelChange)="searchPosts(keyword.value)" name="keyword" class="search-form-control" type="search" placeholder="{{translations['searchbar']}}" aria-label="Search">
+                     
                          <button class="search-btn btn-color btn-hover"><i class="feather-search"></i></button>
                       </form>
                    </div>
                    <ul class="navbar-nav justify-content-end flex-grow-1 pe_5">
                       <li class="nav-item">
-                         <a class="nav-link active" aria-current="page" routerLink="/blog">
+                         <a class="nav-link" aria-current="page" routerLink="/blog">
                             <span class="nav-icon d-lg-none">
                                <i class="feather-home"></i>
                             </span>
@@ -64,13 +65,13 @@
 
                          <ul class="dropdown-menu dropdown-submenu pages-dropdown dropdown-menu-end">
                            <li>
-                              <a class="dropdown-item submenu-item language" id="EN" href="#" (click)="onLanguageClick('EN')">English <i *ngIf="preferredLanguage === 'EN'" class="fa-solid fa-check"></i></a>                               
+                              <a class="dropdown-item submenu-item language" id="EN" href="#" (click)="onLanguageClick('EN')">English <i *ngIf="selectedLang === 'EN'" class="fa-solid fa-check"></i></a>                               
                            </li>
                            <li>
-                              <a class="dropdown-item submenu-item language" id="FR" href="#" (click)="onLanguageClick('FR')">Français <i *ngIf="preferredLanguage === 'FR'" class="fa-solid fa-check"></i></a>                               
+                              <a class="dropdown-item submenu-item language" id="FR" href="#" (click)="onLanguageClick('FR')">Français <i *ngIf="selectedLang === 'FR'" class="fa-solid fa-check"></i></a>                               
                            </li>
                            <li>
-                              <a class="dropdown-item submenu-item language" id="NL" href="#" (click)="onLanguageClick('NL')">Nederlands <i *ngIf="preferredLanguage === 'NL'" class="fa-solid fa-check"></i></a>                               
+                              <a class="dropdown-item submenu-item language" id="NL" href="#" (click)="onLanguageClick('NL')">Nederlands <i *ngIf="selectedLang === 'NL'" class="fa-solid fa-check"></i></a>                               
                            </li>
                          </ul> 
                       </li>
@@ -105,30 +106,27 @@
                    </li> <!----->
                    <li class="mn-icon dropdown dropdown-account ms-4">
                       <a href="#" class="opts_account" role="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                         <img src="assets/images/left-imgs/img-1.jpg" alt="">
+                         <img src="{{userInfo.profilePhoto}}" style="width: 40px; height: 40px;" alt="">
                          <i class="fas fa-caret-down arrow-icon"></i>
                       </a>
                       <ul class="dropdown-menu dropdown-menu-account dropdown-menu-end" aria-labelledby="dropdownMenuClickableInside">
                          <li class="media-list">
                             <div class="night_mode_switch__btn">
-                               <a href="#" id="night-mode" class="btn-night-mode">
-                                  <i class="far fa-moon"></i>Night mode
+                               <a id="night-mode" class="btn-night-mode"  (click)="toggleNightMode()">
+                                  <i class="far fa-moon"></i>{{translations['menuForLogged1']}}
                                   <span class="btn-night-mode-switch">
                                      <span class="uk-switch-button"></span>
                                   </span>
                                </a>
                             </div>
-                            <a routerLink="/profile" class="item ac_item channel_item mt-2"><i class="feather-grid"></i>Profile</a>
-                            <a routerLink="/settings" class="item ac_item channel_item"><i class="feather-settings"></i>Setting</a>
-                            <a routerLink="/privacy" class="item ac_item channel_item"><i class="feather-shield"></i>Privacy</a>		
-                            <a routerLink="/createpost" class="item ac_item channel_item"><i class="fa-regular fa-comments" style="margin-right:12px;"></i>New topic</a> 
-
-                            <a *ngIf="role === 'ADMIN'" routerLink="/createpost" class="item ac_item channel_item"><i class="feather-plus-circle"></i>Create a post</a>
+                            <a routerLink="/myprofile" class="item ac_item channel_item mt-2"><i class="feather-grid"></i>{{translations['menuForLogged2']}}</a>
+                            <a routerLink="/setting" class="item ac_item channel_item"><i class="feather-settings"></i>{{translations['menuForLogged3']}}</a>
+                            <a *ngIf="userInfo.role === 'ADMIN'" routerLink="/createpost" class="item ac_item channel_item"><i class="feather-plus-circle"></i>{{translations['menuForLogged4']}}</a>
                             
                             
                          </li>
                          <li class="dropdown-menu-footer">
-                            <a class="dropdown-item-link text-link text-center" routerLink="/logout">Logout</a>
+                            <a class="dropdown-item-link text-link text-center" (click)="onLogoutClick()">{{translations['menuForLogged5']}}</a>
                          </li>
                       </ul>
                    </li>

@@ -5,9 +5,14 @@ import { TRANSLATION_EN, TRANSLATION_FR, TRANSLATION_NL } from './translation';
 @Injectable({
   providedIn: 'root'
 })
+
 export class TranslationService {
+
   private translationsSubject = new BehaviorSubject<{ [key: string]: string }>(TRANSLATION_EN);
-  currentTranslations$ = this.translationsSubject.asObservable();
+  translations$ = this.translationsSubject.asObservable();
+
+  private selectedLangSubject = new BehaviorSubject<string>('EN');
+  selectedLang$ = this.selectedLangSubject.asObservable();
 
   switchLanguage(lang: string): void {
     let selectedTranslations;
@@ -19,5 +24,7 @@ export class TranslationService {
       selectedTranslations = TRANSLATION_NL;
     }
     this.translationsSubject.next(selectedTranslations);
+    this.selectedLangSubject.next(lang);
   }
+
 }

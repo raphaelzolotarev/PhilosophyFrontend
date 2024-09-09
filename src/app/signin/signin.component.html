@@ -16,6 +16,10 @@
                     </div>
                     <div class="col-xl-5 col-lg-6 col-md-7">
                         <div class="registration">
+                            
+                            <div id="alert" class="alert alert-danger" role="alert" style="display: none; margin-top: 50px; ">
+                                {{translations['signin10']}}
+                            </div>
                             <form (ngSubmit)="onSubmit()" #loginForm="ngForm" action="POST">
                                 <h2 class="registration_title">{{translations['signin3']}}</h2> 
                                 <div class="form_group mt-30">
@@ -28,8 +32,10 @@
                                         <a class="FieldPassword__link" href="forgot_password.html">{{translations['signin6']}}</a>
                                     </div>
                                     <div class="loc_group">
-                                        <input class="reg_form_input_1" [(ngModel)]="password" name="password" type="password" placeholder="" required>
-                                        <span class="pass_show_dt cursor"><i class="feather-eye-off"></i></span>
+                                        <input class="reg_form_input_1" [(ngModel)]="password" id="password" name="password" type="password" placeholder="" required>
+                                        <span id="showpass" class="pass_show_dt cursor" (click)="togglePasswordVisibility()">
+                                            <i id="eyeIcon" class="feather-eye-off"></i>
+                                        </span>
                                     </div>
                                 </div>
                                 <button class="btn-register btn-hover" type="submit" [disabled]="loginForm.invalid">{{translations['signin7']}} <i class="feather-log-in ms-2"></i></button>

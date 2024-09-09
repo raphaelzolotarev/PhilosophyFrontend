@@ -25,11 +25,11 @@
                         <form>
                             <div class="form_group mt-30">
                                 <label class="label25">{{translations['contact3']}}*</label>
-                                <input class="form_input_1" type="text" placeholder="" value="">
+                                <input class="form_input_1" type="text" placeholder="" value="{{ userInfo?.username ?? '' }}">
                             </div>
                             <div class="form_group mt-30">
                                 <label class="label25">{{translations['contact4']}}*</label>
-                                <input class="form_input_1" type="email" placeholder="" value="">
+                                <input class="form_input_1" type="email" placeholder="" value="{{ userInfo?.email ?? '' }}">
                             </div>
                             <div class="form_group mt-30">
                                 <label class="label25">{{translations['contact5']}}*</label>

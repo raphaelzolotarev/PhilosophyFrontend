@@ -1,77 +1,55 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet, RouterModule } from '@angular/router';
-import { User } from './user';
-import { UserService } from './user.service';
-import { response } from 'express';
-import { error } from 'console';
-import { HttpErrorResponse, HttpClientModule } from '@angular/common/http';
+import { RouterOutlet, RouterModule, NavigationEnd, Router } from '@angular/router';
 import { CommonModule } from '@angular/common'; 
-import { FormsModule, NgForm } from '@angular/forms';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
-import { TRANSLATION_EN, TRANSLATION_FR, TRANSLATION_NL } from './translation';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HttpClientModule, CommonModule, FormsModule, RouterOutlet, RouterModule, MenuComponent, FooterComponent],
+  imports: [CommonModule, RouterOutlet, RouterModule, MenuComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
+
 export class AppComponent implements OnInit {
 
-  title = 'frontend';
-  public users! : User[];
-  public editUser!: User | null;
-  public deleteUser!: User | null;
-
-  //user status
-  public isAuthenticated: boolean = false;
-  public userInfo: any;
-  public role: string = 'VISITOR';
-
-  //translations
-  public preferredLanguage: string = 'EN'; 
-  public translations : { [key: string]: string } = TRANSLATION_EN;
-
-  //constructor
-  constructor(private userService: UserService){}
-
-
-
-
-  //METHODS
+  constructor(private router: Router){  }
+  
   ngOnInit(): void {
-    this.getUsers();
-
-    // if user is connected
-    this.userService.getUserInfo().subscribe({
-      next: (data) => {
-        this.userInfo = data;
-        this.isAuthenticated = true;
-        this.preferredLanguage = this.userInfo.preferredLanguage;        
-        this.role = this.userInfo.role;
-        if(this.preferredLanguage === 'EN'){
-          this.translations = TRANSLATION_EN;
-        }
-        else if(this.preferredLanguage === 'FR'){
-          this.translations = TRANSLATION_FR;
-        }
-        else {
-          this.translations = TRANSLATION_NL;
-        }
-        console.log('Utilisateur connecté :', this.userInfo);
-      },
-      error: (err) => {
-        console.log('Aucun utilisateur connecté', err);
-        this.isAuthenticated = false;
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {        
+        //reload setting page for the form bug
+        /*if (event.url === '/setting') {
+          if (!localStorage.getItem('settingsPageReloaded')) {
+            localStorage.setItem('settingsPageReloaded', 'true');
+            window.location.reload();
+          } else {
+            localStorage.removeItem('settingsPageReloaded');
+          }
+        }*/
+        //always top of the page
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
-    });
+    });  
+
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      document.body.classList.add('reflow');
+      document.body.offsetHeight; 
+      document.body.classList.remove('reflow');
+    }, 0);
   }
 
 
+/*
+  public users! : User[];
+  public editUser!: User | null;
+  public deleteUser!: User | null;*/
 
-
+/*
   public getUsers(): void {
     this.userService.getUsers().subscribe({
       next: (response: User[]) => {
@@ -134,8 +112,6 @@ export class AppComponent implements OnInit {
     });
   }
 
-
-
   public onOpenModal(user: User | null, mode: string): void{
     const container = document.getElementById('main-container');
     const button = document.createElement('button');
@@ -155,6 +131,6 @@ export class AppComponent implements OnInit {
     }
     container?.appendChild(button);
     button.click();
-  }
+  }*/
 
 }

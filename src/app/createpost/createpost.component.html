@@ -1,0 +1,78 @@
+<!-- Body Start -->
+<div class="wrapper pt-0">
+    <div class="breadcrumb-pt breadcrumb-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="breadcrumb-title">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Create New Post</li>
+                            </ol>
+                        </nav>
+                        <h1 class="title_text">Create New Post</h1>							
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-post-job mt-35">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <h3 class="cate-upload-title">Create New Post Today... It’s Simple!</h3>
+                    <p class="pdgdlne">Simply fill in the form below to publish your page.</p>
+                </div>
+                <div class="col-xl-8 col-lg-8 col-md-12">
+                    <div class="main-form">
+                        <form #addForm="ngForm" #postForm="ngForm" (ngSubmit)="onAddPost(addForm)">
+                            <div class="row">
+                                <input type="hidden" [(ngModel)]="author" name="author">
+                                <div class="col-lg-12">
+                                    <div class="form_group mt-30">
+                                        <label class="label25">Title*</label>
+                                        <input class="form_input_1" [(ngModel)]="title" name="title" type="text" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form_group mt-30">
+                                        <label class="label25">Image*</label>
+                                        <input [(ngModel)]="imageUrl" name="imageUrl" class="form_input_1" type="text" placeholder="https://">
+                                        <span class="alt-text">Image url</span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form_group mt-30">
+                                        <label class="label25">Category*</label>
+                                        <select [(ngModel)]="category" name="category" class="form_input_1" title="Select Category" data-size="5">
+                                            <option value="Zen">Zen</option>
+                                            <option value="Tao">Tao</option>
+                                            <option value="Yoga">Yoga</option>
+                                            <option value="Advaita Vedenta">Advaita Vedenta</option>
+                                            <option value="Philosophy">Philosophy</option>
+                                            <option value="Theravada">Theravada</option>
+                                        </select>
+                                    </div>
+                                </div>																		
+                                <div class="col-lg-12">
+                                    <div class="form_group mt-30">				
+                                        <label class="label25">Description*</label>
+                                        <textarea [(ngModel)]="description" name="description" class="form_textarea_1" placeholder=""></textarea>
+                                        <span class="alt-text">Post description can have html tags</span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="submit_btn">
+                                        <button type="submit" [disabled]="postForm.invalid" class="main-btn color btn-hover">Create Post</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Body End -->

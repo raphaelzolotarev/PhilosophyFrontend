@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common'; 
 import { TRANSLATION_EN } from '../translation';
@@ -11,14 +11,12 @@ import { TranslationService } from '../translation.service';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent implements OnInit{
-  @Input() translations : { [key: string]: string } = TRANSLATION_EN;
+export class HomeComponent{
 
-  constructor(private translationService: TranslationService) {}
+  public translations: { [key: string]: string }  = TRANSLATION_EN;
 
-  ngOnInit(): void {
-    this.translationService.currentTranslations$.subscribe((translations) => {
-      this.translations = translations;
-    });
+  constructor(private translationService: TranslationService) {    
+    this.translationService.translations$.subscribe(translations => this.translations = translations);
   }
+
 }

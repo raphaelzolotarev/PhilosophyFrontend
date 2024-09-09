@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { AppComponent } from './app.component';
 import { ContactComponent } from './contact/contact.component'; 
 import { HomeComponent } from './home/home.component';
 import { TermsComponent } from './terms/terms.component';
@@ -7,14 +6,26 @@ import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { BlogComponent } from './blog/blog.component';
 import { CommunityComponent } from './community/community.component';
+import { MyprofileComponent } from './myprofile/myprofile.component';
+import { UserprofileComponent } from './userprofile/userprofile.component';
+import { SettingComponent } from './setting/setting.component';
+import { CreatepostComponent } from './createpost/createpost.component';
+import { EditpostComponent } from './editpost/editpost.component';
+import { PostdetailsComponent } from './postdetails/postdetails.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent }  ,
   { path: 'contact', component: ContactComponent }  ,
   { path: 'terms', component: TermsComponent }  ,
-  { path: 'signin', component: SigninComponent }  ,
-  { path: 'signup', component: SignupComponent }  ,
+  { path: 'signin', component: SigninComponent}  ,
+  { path: 'signup', component: SignupComponent}  ,
   { path: 'blog', component: BlogComponent }  ,
-  { path: 'community', component: CommunityComponent }  
+  { path: 'community', component: CommunityComponent } , 
+  { path: 'myprofile', component: MyprofileComponent} ,
+  { path: 'setting', component: SettingComponent} ,
+  { path: 'userprofile/:id', component: UserprofileComponent} ,
+  { path: 'createpost', component: CreatepostComponent} ,
+  { path: 'editpost/:id', component: EditpostComponent} ,
+  { path: 'postdetails/:id', component: PostdetailsComponent} ,
 ];
 

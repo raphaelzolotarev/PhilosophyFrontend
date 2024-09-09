@@ -14,38 +14,52 @@
                     </div>
                     <div class="col-xl-5 col-lg-6 col-md-7">
                         <div class="registration">
-                            <form>
+                            
+                            <div id="alert" class="alert alert-danger" role="alert" style="display: none; margin-top: 50px;">
+                                {{translations['signup16']}}
+                            </div>
+                            <form #addForm="ngForm" #signupForm="ngForm" (ngSubmit)="onAddUser(addForm)">
                                 <h2 class="registration_title">{{translations['signup3']}}</h2>
                                 <div class="form_group mt-30">
                                     <label class="label25">{{translations['signup4']}}*</label>
-                                    <input class="reg_form_input_1" name="username" type="text" placeholder="" value="" required>																								
+                                    <input class="reg_form_input_1" [(ngModel)]="username" name="username" type="text" placeholder="" value="" required>																								
                                 </div>
-                                <div class="form_group mt-25">
+                                <div class="form_group mt-30">
                                     <label class="label25">{{translations['signup5']}}*</label>
-                                    <input class="reg_form_input_1" name="email" type="email" placeholder="" value="" required>																								
+                                    <input class="reg_form_input_1" [(ngModel)]="email" name="email" type="text" placeholder="" value="" required>																								
                                 </div>
                                 <div class="form_group mt-25">
                                     <label class="label25">{{translations['signup6']}}*</label>
+                                    
                                     <div class="loc_group">
-                                        <input class="reg_form_input_1" name="password" type="password" placeholder="" required>
-                                        <span class="pass_show_dt cursor"><i class="feather-eye-off"></i></span>
+                                        <input class="reg_form_input_1" [(ngModel)]="password" id="password" name="password" type="password" placeholder="" autocomplete="new-password" required>
+                                        <span id="showpass" class="pass_show_dt cursor" (click)="togglePasswordVisibility()">
+                                            <i id="eyeIcon" class="feather-eye-off"></i>
+                                        </span>
                                     </div>
                                 </div>
-                                <!--<div class="form_group mt-25">
-                                    <label class="label25">Gender*</label>
-                                    <div class="loc_group">
-                                        <select class="reg_form_input_1" name="gender">
-                                            <option value="">Select Gender</option> 
-                                            <option value="M">Male</option>
-                                            <option value="W">Female</option>
-                                        </select>
+                                
+                                <!--hidden lang-->
+                                <input class="reg_form_input_1" [(ngModel)]="preferredLanguage" id="preferredLanguage" name="preferredLanguage" type="hidden" placeholder="" required>
+
+                                <div class="form_group mt-25">
+                                    <label class="label25">{{translations['signup12']}}*</label>
+                                    <div class="loc_group">                                        
+                                        <div class="">
+                                            <select [(ngModel)]="gender" id="gender" class="reg_form_input_1" style="color:#a0a0a0" name="gender" required>
+                                                <option value="">{{translations['signup13']}}</option> 
+                                                <option value="M">{{translations['signup14']}}</option>
+                                                <option value="W">{{translations['signup15']}}</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>--> 
+                                    
+                                </div>
                                 <div class="signup_check_checkbox mt-30">
-                                    <input type="checkbox" id="google_analytics_check" required>
+                                    <input [(ngModel)]="termsAccepted" type="checkbox" id="google_analytics_check" name="termsAccepted" required>
                                     <label for="google_analytics_check">{{translations['signup7']}} <a target="_blank" href="/terms">{{translations['signup8']}}</a></label>
                                 </div>
-                                <button class="btn-register btn-hover" type="submit" >{{translations['signup9']}}</button>
+                                <button class="btn-register btn-hover" type="submit" [disabled]="signupForm.invalid">{{translations['signup9']}}</button>
                             </form>
                             <div class="registration_line">
                                 <span class="registration_linetext">{{translations['signup10']}}</span>

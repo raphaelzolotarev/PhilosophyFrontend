@@ -1,0 +1,323 @@
+
+<!-- Body Start -->
+<div id="tabdashboard" class="wrapper pt-0">
+    <div class="main-background-cover breadcrumb-pt">			
+        <div class="banner-user" [style.background-image]="'url(' + userInfo.coverPhoto + ')'" >
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="banner-item-dts">						
+                            <div class="banner-content">					
+                                <div class="banner-media">
+                                    <div class="item-profile-img">
+                                        <img [src]="userInfo.profilePhoto" alt="User-Avatar" style="width: 100px; height: 100px;">
+                                    </div>
+                                    <div class="banner-media-body">
+                                        <h3 class="item-user-title">{{userInfo.username}}</h3>
+                                        
+                                        
+                                        <ul class="user-meta-btns">
+                                            <li><a routerLink="/setting" class="profile-edit-btn btn-hover"><i class="feather-edit me-2"></i>{{translations['myprofile2']}}</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>	
+    </div>
+    <div class="custom-pl-tabs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <div class="offcanvas offcanvas-end" tabindex="-1" id="ppcanvasNavbar" aria-labelledby="ppcanvasNavbarLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="ppcanvasNavbarLabel">Profile</h5>
+                                <button type="button" class="close-btn btn-color" data-bs-dismiss="offcanvas" aria-label="Close">
+                                    <i class="feather-x"></i>
+                                </button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <ul class="navbar-nav justify-content-start flex-grow-1 pe_5">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="javascript:void(0);" 
+                                        (click)="onNavLinkClick($event, 'tabdashboard')">
+                                            <span class="nav-icon">
+                                                <i class="feather-grid"></i>
+                                            </span>
+                                            {{translations['myprofile3']}}
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link " href="javascript:void(0);" 
+                                        (click)="onNavLinkClick($event, 'tabconnections')" >
+                                            <span class="nav-icon">
+                                                <i class="feather-users"></i>
+                                            </span>
+                                            {{translations['myprofile4']}}
+                                        </a>
+                                    </li>
+                                   
+                                    <li class="nav-item">
+                                        <a class="nav-link"  href="javascript:void(0);" 
+                                        (click)="onNavLinkClick($event, 'tablikes')">
+                                            <span class="nav-icon">
+                                                <i class="feather-thumbs-up"></i>
+                                            </span>
+                                            {{translations['myprofile5']}}
+                                        </a>
+                                    </li>
+
+                                    
+                                   
+                                    <li *ngIf="userInfo.role === 'ADMIN' " class="nav-item">
+                                        <a class="nav-link"  href="javascript:void(0);" 
+                                        (click)="onNavLinkClick($event, 'tabposts')">
+                                            <span class="nav-icon">
+                                                <i class="fa-solid fa-blog"></i>
+                                            </span>
+                                            Posts
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dtpgusr12">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-lg-4 col-md-12 order-lg-1 order-2">
+                    
+                    <div class="event-card mt-4">
+                        <div class="headtte14m">
+                            <span><i class="feather-info"></i></span>
+                            <h4>{{translations['myprofile6']}}</h4>
+                        </div>
+                        <div class="evntdt99">
+                            <div class="mndtlist">
+                                <div class="evntflldt4 flxcntr">
+                                    <div class="hhttd14s">
+                                        <i class="fa-regular fa-user"></i>
+                                    </div>
+                                    <div class="ttlpple">
+                                        <span></span>
+                                        <span *ngIf="userInfo.role === 'USER'">{{translations['myprofile18']}}</span>
+                                        <span *ngIf="userInfo.role === 'ADMIN'">{{translations['myprofile19']}}</span>
+                                    </div>
+                                </div>
+                            </div>		
+                            <div class="mndtlist">
+                                <div class="evntflldt4 flxcntr">
+                                    <div class="hhttd14s">
+                                        <i class="fa-solid fa-venus-mars"></i>
+                                    </div>
+                                    <div class="ttlpple">
+                                        <span *ngIf="userInfo.gender === 'M'">{{translations['myprofile16']}}</span>
+                                        <span *ngIf="userInfo.gender === 'W'">{{translations['myprofile17']}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mndtlist">
+                                <div class="evntflldt4 flxcntr">
+                                    <div class="hhttd14s">
+                                        <i class="fa-regular fa-flag"></i>
+                                    </div>
+                                    <div class="ttlpple">
+                                        <span *ngIf="userInfo.preferredLanguage === 'EN'">{{translations['myprofile13']}}</span>
+                                        <span *ngIf="userInfo.preferredLanguage === 'FR'">{{translations['myprofile14']}}</span>
+                                        <span *ngIf="userInfo.preferredLanguage === 'NL'">{{translations['myprofile15']}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mndtlist">
+                                <div class="evntflldt4 flxcntr">
+                                    <div class="hhttd14s">
+                                        <i class="fa-solid fa-calendar-days"></i>
+                                    </div>
+                                    <div class="ttlpple">
+                                        <span>{{userInfo.createdAt | date:'dd/MM/yyyy'}}</span>
+                                    </div>
+                                </div>
+                            </div>														
+                            <div class="mndtlist">
+                                <div class="mndesp145 page-ddes">
+                                    <div class="evarticledes">
+                                        <p class="mb-0">{{userInfo.bio}}<br></p>																						
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>		
+                    									
+                </div>	
+
+
+
+                <div id="tabconnections" class="col-xl-9 col-lg-8 col-md-12 order-lg-2 order-1">
+                    <div class="headtte14m box-shadow_main">
+                        <span><i class="feather-users"></i></span>
+                        <h4>{{translations['myprofile7']}}</h4>
+                    </div>
+                    <div class="product-items-list pl_item_search mt-35">
+                        <div class="btn-8585">
+                            <a id="linkfollowing" (click)="toggleFollowing()" class="afltr-btn afltr-active">{{translations['myprofile8']}} <span class="ms-2">{{ userInfo.following.length }}</span></a>
+                            <a id="linkfollower" (click)="toggleFollower()" class="afltr-btn">{{translations['myprofile9']}} <span class="ms-2">{{ userInfo.followers.length }}</span></a>
+                        </div>
+
+                        <ng-container *ngIf="showFollowing" >
+                        <div  class="full-width mt-30 mb-30" *ngFor="let followingUser of userInfo.following">										
+                            <div class="recent-items">
+                                <div class="jobs-list">
+                                    <div class="media invite125 d-md-flex">
+                                        <div class="job-left">
+                                            <img class="ft-plus-square job-bg-circle bg-cyan me-0" src="{{followingUser.profilePhoto}}" alt="">
+                                        </div>
+                                        <div class="media-body">
+                                            <a routerLink="/userprofile/{{followingUser.id}}" class="job-heading pt-0 mb_5">{{followingUser.username}}</a>
+                                            <p class="notification-text font-small-4">
+                                                
+                                                <span class="">
+                                                    <i class="fa-regular fa-user"></i>
+                                                    <span *ngIf="followingUser.role === 'USER'" > {{translations['myprofile18']}}</span>
+                                                    <span *ngIf="followingUser.role === 'ADMIN'" > {{translations['myprofile19']}}</span>
+                                                </span>
+                                                <span class="" style="margin-left: 10px;">
+                                                    <i class="fa-solid fa-venus-mars"></i>
+                                                    <span *ngIf="followingUser.gender === 'M'" > {{translations['myprofile16']}}</span>
+                                                    <span *ngIf="followingUser.gender === 'W'" > {{translations['myprofile17']}}</span>
+                                                </span>
+                                                <span class="" style="margin-left: 10px;">
+                                                    <i class="fa-regular fa-flag"></i>
+                                                    <span *ngIf="followingUser.preferredLanguage === 'EN'" > {{translations['myprofile13']}}</span>
+                                                    <span *ngIf="followingUser.preferredLanguage === 'FR'" > {{translations['myprofile14']}}</span>
+                                                    <span *ngIf="followingUser.preferredLanguage === 'NL'" > {{translations['myprofile15']}}</span>
+                                                </span>
+                                            </p>
+                                        </div>
+                                        <div class="media-btns">
+                                            <button type="button" class="accpt-btn btn-hover accpt-btn-clr msgngup">{{translations['myprofile10']}}</button>
+                                            <button (click)="unFollowUser(followingUser.id)" type="button" class="rcancel-btn" ><i class="feather-user-minus"></i></button>
+                                        </div>
+                                    </div>
+                                </div>                            
+                            </div>
+                        </div>
+                        </ng-container>
+
+                        
+                        <ng-container *ngIf="!showFollowing" >
+                            <div  class="full-width mt-30 mb-30" *ngFor="let followerUser of userInfo.followers">										
+                            <div class="recent-items">
+                                <div class="jobs-list">
+                                    <div class="media invite125 d-md-flex">
+                                        <div class="job-left">
+                                            <img class="ft-plus-square job-bg-circle bg-cyan me-0" src="{{followerUser.profilePhoto}}" alt="">
+                                        </div>
+                                        <div class="media-body">
+                                            <a routerLink="/userprofile/{{followerUser.id}}" class="job-heading pt-0 mb_5">{{followerUser.username}}</a>
+                                            <p class="notification-text font-small-4">
+                                                <span class="">
+                                                    <i class="fa-regular fa-user"></i>
+                                                    <span *ngIf="followerUser.role === 'USER'" > {{translations['myprofile18']}}</span>
+                                                    <span *ngIf="followerUser.role === 'ADMIN'" > {{translations['myprofile19']}}</span>
+                                                </span>
+                                                <span class="" style="margin-left: 10px;">
+                                                    <i class="fa-solid fa-venus-mars"></i>
+                                                    <span *ngIf="followerUser.gender === 'M'" > {{translations['myprofile16']}}</span>
+                                                    <span *ngIf="followerUser.gender === 'W'" > {{translations['myprofile17']}}</span>
+                                                </span>
+                                                <span class="" style="margin-left: 10px;">
+                                                    <i class="fa-regular fa-flag"></i>
+                                                    <span *ngIf="followerUser.preferredLanguage === 'EN'" > {{translations['myprofile13']}}</span>
+                                                    <span *ngIf="followerUser.preferredLanguage === 'FR'" > {{translations['myprofile14']}}</span>
+                                                    <span *ngIf="followerUser.preferredLanguage === 'NL'" > {{translations['myprofile15']}}</span>
+                                                </span>
+                                            </p>
+                                        </div>
+                                        <div class="media-btns">
+                                            <button type="button" class="accpt-btn btn-hover accpt-btn-clr msgngup">{{translations['myprofile10']}}</button>
+                                            <button *ngIf="!isUserFollowed(followerUser.id)" (click)="followUser(followerUser.id)" type="button" class="rcancel-btn" ><i class="feather-user-plus"></i></button>
+                                        </div>
+                                    </div>
+                                </div>                            
+                            </div>
+                        </div>
+                    </ng-container>
+
+                    </div>
+
+                    <!--LIKES-->
+                    <div id="tablikes" class="headtte14m box-shadow_main">
+                        <span><i class="feather-heart"></i></span>
+                        <h4>{{translations['myprofile11']}} ({{likes.length}})</h4>
+                    </div>
+                    <div class="product-items-list pl_item_search mt-4" >
+                        <div class="row">	
+                            
+                            <div class="col-xl-4 col-lg-6 col-md-6" *ngFor="let like of likes">
+                                <div class="ppuser-card mb-4">
+                                    <div class="ppuser-img">															
+                                        <img class="ft-plus-square job-bg-circle bg-cyan me-0" src="{{like.post.imageUrl}}" alt="">
+                                    </div>
+                                    <a routerLink="/postdetails/{{like.post.id}}" class="job-heading text-center">{{like.post.title}}</a>
+                                    <p class="notification-text font-small-4 text-center">
+                                        <span class="job-loca hash-loc">
+                                            <i class="fa-regular fa-user"></i>
+                                            <ins class="state-name">{{like.post.author.username}}</ins>
+                                        </span>
+                                        <span class="oflst126"><i class="fa-solid fa-tag"></i> {{like.post.category}}</span>
+                                    </p>
+                                    <button (click)="dislike(like.post.id, userInfo.id)" class="act-btn btn-hover" type="button"><i class="feather-thumbs-down me-2" ></i>Dislike</button>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+
+
+                    <!--POSTS IF ADMIN-->
+                    <ng-container *ngIf="userInfo.role === 'ADMIN' ">
+                        <div id="tabposts" class="headtte14m box-shadow_main">
+                            <span><i class="fa-solid fa-tag"></i></span>
+                            <h4>Posts ({{posts.length}})</h4>
+                        </div>
+                        <div class="product-items-list pl_item_search mt-4" >
+                            <div class="row">	
+                                
+                                <div class="col-xl-4 col-lg-6 col-md-6" *ngFor="let post of posts">
+                                    <div class="ppuser-card mb-4">
+                                        <div class="ppuser-img">															
+                                            <img class="ft-plus-square job-bg-circle bg-cyan me-0" src="{{post.imageUrl}}" alt="">
+                                        </div>
+                                        <a routerLink="/postdetails/{{post.id}}" class="job-heading text-center">{{post.title}}</a>
+                                        <p class="notification-text font-small-4 text-center">
+                                            <span class="job-loca hash-loc">
+                                                <i class="fa-regular fa-user"></i>
+                                                <ins class="state-name">{{post.author.username}}</ins>
+                                            </span>
+                                            <span class="oflst126"><i class="fa-solid fa-tag"></i> {{post.category}}</span>
+                                        </p>
+                                        <a [routerLink]="['/editpost', post.id]"><button  class="act-btn btn-hover" type="button"><i class="feather-edit me-2" ></i>Edit post</button></a>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </ng-container>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Body End -->

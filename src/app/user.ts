@@ -1,3 +1,4 @@
+import { Like } from './like';
 export interface User {
     id : number;
     username: string;
@@ -5,5 +6,13 @@ export interface User {
     password: string;
     profilePhoto : string;
     role: string;
-    preferredLanguage : string;
+    preferredLanguage : string;    
+    coverPhoto : string;
+    gender : string;
+    createdAt : string;
+    bio : string;
+    following : User[];
+    followers : User[];
 }
+
+

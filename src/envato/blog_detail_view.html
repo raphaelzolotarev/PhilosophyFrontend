@@ -1,0 +1,639 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, shrink-to-fit=9">
+		<meta name="description" content="Gambolthemes">
+		<meta name="author" content="Gambolthemes">		
+		<title>Micko - Blog Detail View</title>
+		
+		<!-- Favicon Icon -->
+		<link rel="icon" type="image/png" href="images/fav.png">
+		
+		<!-- Stylesheets -->
+		<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;300;400;500;700;800;900&display=swap" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/responsive.css" rel="stylesheet">
+		<link href="css/night-mode.css" rel="stylesheet">
+		
+		<!-- Vendor Stylesheets -->
+		<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+		<link href="vendor/feather-icons/feather.css" rel="stylesheet">
+		<link href='vendor/unicons-2.0.1/css/unicons.css' rel='stylesheet'>
+		<link href="vendor/OwlCarousel/assets/owl.carousel.css" rel="stylesheet">
+		<link href="vendor/OwlCarousel/assets/owl.theme.default.min.css" rel="stylesheet">
+		<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="vendor/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet">
+		
+	</head>
+
+<body>
+	<!-- Header Start -->
+	<header class="header clearfix">
+		<div class="header-inner">
+			<nav class="navbar navbar-expand-lg bg-micko micko-head justify-content-sm-start micko-top pt-0 pb-0 px-2 px-lg-4">
+				<div class="container">	
+					<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+						<span class="micko-toggler-icon">
+							<i class="feather-menu"></i>
+						</span>
+					</button>
+					<a class="navbar-bran ms-lg-0 ml-2 me-auto" href="index.html">
+						<div class="res_main_logo">
+							<img src="images/res-logo.png" alt="">
+						</div>
+						<div class="main_logo" id="logo">
+							<img src="images/logo.png" alt="">
+							<img class="logo-inverse" src="images/dark-logo.png" alt="">
+						</div>
+					</a>
+					<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+						<div class="offcanvas-header">
+							<div class="offcanvas-logo" id="offcanvasNavbarLabel">
+								<img src="images/res-logo.png" alt="">
+							</div>
+							<button type="button" class="close-btn btn-color" data-bs-dismiss="offcanvas" aria-label="Close">
+								<i class="feather-x"></i>
+							</button>
+						</div>
+						<div class="offcanvas-body">
+							<div class="offcanvas-search">
+								<form class="search-form-header">
+									<input class="search-form-control" type="search" placeholder="Search..." aria-label="Search">
+									<button class="search-btn btn-color btn-hover"><i class="feather-search"></i></button>
+								</form>
+							</div>
+							<ul class="navbar-nav justify-content-end flex-grow-1 pe_5">
+								<li class="nav-item">
+									<a class="nav-link active" aria-current="page" href="index.html">
+										<span class="nav-icon d-lg-none">
+											<i class="feather-home"></i>
+										</span>
+										Home
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="find_connections.html">
+										<span class="nav-icon  d-lg-none">
+											<i class="feather-users"></i>
+										</span>
+										Find Connections
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="all_jobs.html">
+										<span class="nav-icon d-lg-none">
+											<i class="feather-briefcase"></i>
+										</span>
+										Jobs
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="all_products.html">
+										<span class="nav-icon d-lg-none">
+											<i class="feather-shopping-cart"></i>
+										</span>
+										Shop
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="all_learning.html">
+										<span class="nav-icon d-lg-none">
+											<i class="feather-book-open"></i>
+										</span>
+										Learning
+									</a>
+								</li>
+								<li class="nav-item dropdown">
+									<a class="nav-link custom-d-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+										<span class="nav-icon d-lg-none">
+											<i class="feather-list"></i>
+										</span>
+										Pages<i class="fas fa-caret-down ms-2 d-none d-lg-inline-block"></i>
+									</a>
+									<ul class="dropdown-menu dropdown-submenu pages-dropdown dropdown-menu-end">
+										<li>
+											<a class="dropdown-item submenu-item dropdown-page-items" href="#">Other Pages</a>
+											<ul class="submenu dropdown-menu">
+												<li><a class="dropdown-item pe-5" href="about_us.html">About Us</a></li>
+												<li><a class="dropdown-item pe-5" href="contact_us.html">Contact Us</a></li>
+												<li><a class="dropdown-item pe-5" href="messages.html">Messages</a></li>
+												<li><a class="dropdown-item pe-5" href="badges.html">Badges</a></li>
+												<li><a class="dropdown-item pe-5" href="setting.html">Setting</a></li>
+												<li><a class="dropdown-item pe-5" href="all_notifications.html">All Notifications</a></li>
+												<li><a class="dropdown-item pe-5" href="feedback.html">Feedback</a></li>
+												<li><a class="dropdown-item pe-5" href="invoice.html">Invoice</a></li>
+												<li><a class="dropdown-item pe-5" href="help_center.html">Help Center</a></li>
+												<li><a class="dropdown-item pe-5" href="coming_soon.html">Coming Soon</a></li>
+												<li><a class="dropdown-item pe-5" href="error_404.html">Error 404</a></li>
+												<li><a class="dropdown-item pe-5" href="privacy_policy.html">Privacy Policy</a></li>
+												<li><a class="dropdown-item pe-5" href="terms_of_use.html">Terms of Use</a></li>
+												<li><a class="dropdown-item pe-5" href="request_refund_policy.html">Refund Policy</a></li>
+											</ul>
+										</li>
+										<li>
+											<a class="dropdown-item submenu-item dropdown-page-items" href="#">Sign In</a>
+											<ul class="submenu dropdown-menu">
+												<li><a class="dropdown-item pe-5" href="sign_in.html">Sign In</a></li>
+												<li><a class="dropdown-item pe-5" href="sign_up.html">Sign Up</a></li>
+												<li><a class="dropdown-item pe-5" href="sign_up_steps.html">Sign Up Steps</a></li>
+											</ul>
+										</li>
+										<li>
+											<a class="dropdown-item submenu-item dropdown-page-items" href="#">Cart & Checkout</a>
+											<ul class="submenu dropdown-menu">
+												<li><a class="dropdown-item pe-5" href="cart.html">Cart</a></li>
+												<li><a class="dropdown-item pe-5" href="checkout.html">Checkout</a></li>
+												<li><a class="dropdown-item pe-5" href="invoice.html">Invoice</a></li>
+											</ul>
+										</li>
+										<li>
+											<a class="dropdown-item submenu-item dropdown-page-items" href="#">Upload</a>
+											<ul class="submenu dropdown-menu">
+												<li><a class="dropdown-item pe-5" href="upload.html">Upload</a></li>
+												<li><a class="dropdown-item pe-5" href="post_a_job.html">Post a Job</a></li>
+												<li><a class="dropdown-item pe-5" href="add_product.html">Add Product</a></li>
+												<li><a class="dropdown-item pe-5" href="add_course.html">Add Course</a></li>
+											</ul>
+										</li>
+										<li>
+											<a class="dropdown-item submenu-item dropdown-page-items" href="#">Products</a>
+											<ul class="submenu dropdown-menu">
+												<li><a class="dropdown-item pe-5" href="all_products.html">All Products</a></li>
+												<li><a class="dropdown-item pe-5" href="my_product_detail_view.html">My Product Detail View</a></li>
+												<li><a class="dropdown-item pe-5" href="product_detail_view.html">Product Detail View</a></li>
+												<li><a class="dropdown-item pe-5" href="my_portfolio.html">Manage Products</a></li>
+											</ul>
+										</li>
+										<li>
+											<a class="dropdown-item submenu-item dropdown-page-items" href="#">Courses</a>
+											<ul class="submenu dropdown-menu">
+												<li><a class="dropdown-item pe-5" href="all_learning.html">All Learning</a></li>
+												<li><a class="dropdown-item pe-5" href="my_course_detail_view.html">My Course Detail View</a></li>
+												<li><a class="dropdown-item pe-5" href="course_detail_view.html">Course Detail View</a></li>
+												<li><a class="dropdown-item pe-5" href="my_courses.html">Manage Courses</a></li>
+											</ul>
+										</li>
+										<li>
+											<a class="dropdown-item submenu-item dropdown-page-items" href="#">Jobs</a>
+											<ul class="submenu dropdown-menu">
+												<li><a class="dropdown-item pe-5" href="all_jobs.html">All Jobs</a></li>
+												<li><a class="dropdown-item pe-5" href="my_job_detail_view.html">My Job Detail View</a></li>
+												<li><a class="dropdown-item pe-5" href="job_detail_view.html">Job Detail View</a></li>
+												<li><a class="dropdown-item pe-5" href="my_manage_jobs.html">Manage Jobs</a></li>
+											</ul>
+										</li>
+										<li>
+											<a class="dropdown-item submenu-item dropdown-page-items" href="#">Profiles</a>
+											<ul class="submenu dropdown-menu">
+												<li><a class="dropdown-item pe-5" href="my_profile_dashboard.html">My Profile View</a></li>
+												<li><a class="dropdown-item pe-5" href="user_profile_timeline.html">User Profile View</a></li>
+											</ul>
+										</li>
+										<li>
+											<a class="dropdown-item submenu-item dropdown-page-items" href="#">Create</a>
+											<ul class="submenu dropdown-menu">
+												<li><a class="dropdown-item pe-5" href="create.html">Create</a></li>
+												<li><a class="dropdown-item pe-5" href="create_page.html">Create Page</a></li>
+												<li><a class="dropdown-item pe-5" href="create_group.html">Create Group</a></li>
+												<li><a class="dropdown-item pe-5" href="create_event.html">Create Event</a></li>
+											</ul>
+										</li>
+										<li>
+											<a class="dropdown-item submenu-item dropdown-page-items" href="#">Pages</a>
+											<ul class="submenu dropdown-menu">
+												<li><a class="dropdown-item pe-5" href="my_page_home.html">My Page Detail View</a></li>
+												<li><a class="dropdown-item pe-5" href="page_home.html">Page Detail View</a></li>
+												<li><a class="dropdown-item pe-5" href="suggested_pages.html">Suggested Pages</a></li>
+												<li><a class="dropdown-item pe-5" href="my_pages.html">My Pages</a></li>
+												<li><a class="dropdown-item pe-5" href="liked_pages.html">Liked Pages</a></li>
+											</ul>
+										</li>
+										<li>
+											<a class="dropdown-item submenu-item dropdown-page-items" href="#">Groups</a>
+											<ul class="submenu dropdown-menu">
+												<li><a class="dropdown-item pe-5" href="my_group_home.html">My Group Detail View</a></li>
+												<li><a class="dropdown-item pe-5" href="group_home.html">Group Detail View</a></li>
+												<li><a class="dropdown-item pe-5" href="suggested_groups.html">Suggested Groups</a></li>
+												<li><a class="dropdown-item pe-5" href="my_groups.html">My Groups</a></li>
+												<li><a class="dropdown-item pe-5" href="joined_groups.html">Joined Groups</a></li>
+											</ul>
+										</li>
+										<li>
+											<a class="dropdown-item submenu-item dropdown-page-items" href="#">Events</a>
+											<ul class="submenu dropdown-menu">
+												<li><a class="dropdown-item pe-5" href="my_event_detail_view.html">My Event Detail View</a></li>
+												<li><a class="dropdown-item pe-5" href="event_detail_view.html">Event Detail View</a></li>
+												<li><a class="dropdown-item pe-5" href="discover_events.html">Discover Events</a></li>
+												<li><a class="dropdown-item pe-5" href="my_events.html">My Events</a></li>
+												<li><a class="dropdown-item pe-5" href="birthday_events.html">Birthday</a></li>
+											</ul>
+										</li>
+										<li>
+											<a class="dropdown-item submenu-item dropdown-page-items" href="#">Connections</a>
+											<ul class="submenu dropdown-menu">
+												<li><a class="dropdown-item pe-5" href="find_connections.html">Find Connections</a></li>
+												<li><a class="dropdown-item pe-5" href="my_connections.html">My Connections</a></li>
+												<li><a class="dropdown-item pe-5" href="pending_invitations_received.html">Pending Invitations</a></li>
+											</ul>
+										</li>
+										<li>
+											<a class="dropdown-item submenu-item dropdown-page-items" href="#">Hashtags</a>
+											<ul class="submenu dropdown-menu">
+												<li><a class="dropdown-item pe-5" href="following_hashtags.html">Following Hashtags</a></li>
+												<li><a class="dropdown-item pe-5" href="suggested_hashtags.html">Suggested Hashtags</a></li>
+											</ul>
+										</li>
+										<li>
+											<a class="dropdown-item submenu-item dropdown-page-items" href="#">Refunds</a>
+											<ul class="submenu dropdown-menu">
+												<li><a class="dropdown-item pe-5" href="refunds.html">Refunds</a></li>
+												<li><a class="dropdown-item pe-5" href="request_a_refund.html">Request a Refund</a></li>
+												<li><a class="dropdown-item pe-5" href="refund_request_open.html">Refund Request Open</a></li>
+												<li><a class="dropdown-item pe-5" href="refund_request_closed.html">Refund Request Closed</a></li>
+											</ul>
+										</li>
+										<li>
+											<a class="dropdown-item submenu-item dropdown-page-items" href="#">Forums</a>
+											<ul class="submenu dropdown-menu">
+												<li><a class="dropdown-item pe-5" href="refunds.html">Refunds</a></li>
+												<li><a class="dropdown-item pe-5" href="request_a_refund.html">Request a Refund</a></li>
+												<li><a class="dropdown-item pe-5" href="refund_request_open.html">Refund Request Open</a></li>
+												<li><a class="dropdown-item pe-5" href="refund_request_closed.html">Refund Request Closed</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						<div class="offcanvas-footer">
+							<div class="micko-copyright">
+								<p><i class="fas fa-copyright"></i>2022 Micko by <a href="#">Gambolthemes</a>. All Right Reserved.</p>
+							</div>
+						</div>
+					</div>
+					<div class="msg-noti-acnt-section order-2">
+						<ul class="mn-icons-set ms-3 align-self-stretch">
+							<li class="mn-icon">
+								<a class="mn-link" href="messages.html" role="button">
+									<i class="feather-message-square"></i>
+									<div class="alert-circle"></div>
+								</a>							
+							</li>
+							<li class="mn-icon">
+								<a class="mn-link" href="all_notifications.html" role="button">
+									<i class="feather-bell"></i>
+									<div class="alert-circle"></div>
+								</a>
+							</li>
+							<li class="mn-icon dropdown dropdown-account ms-4">
+								<a href="#" class="opts_account" role="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+									<img src="images/left-imgs/img-1.jpg" alt="">
+									<i class="fas fa-caret-down arrow-icon"></i>
+								</a>
+								<ul class="dropdown-menu dropdown-menu-account dropdown-menu-end" aria-labelledby="dropdownMenuClickableInside">
+									<li class="media-list">
+										<div class="night_mode_switch__btn">
+											<a href="#" id="night-mode" class="btn-night-mode">
+												<i class="far fa-moon"></i>Night mode
+												<span class="btn-night-mode-switch">
+													<span class="uk-switch-button"></span>
+												</span>
+											</a>
+										</div>
+										<a href="my_profile_timeline.html" class="item ac_item channel_item mt-2"><i class="feather-align-right"></i>Profile Timeline</a>
+										<a href="my_profile_dashboard.html" class="item ac_item channel_item mt-2"><i class="feather-grid"></i>Dashboard</a>
+										<a href="cart.html" class="item ac_item channel_item"><i class="feather-shopping-bag"></i>Cart<span class="badge-cart">4</span></a>
+										<a href="upload.html" class="item ac_item channel_item"><i class="feather-upload"></i>Upload</a>
+										<a href="create.html" class="item ac_item channel_item"><i class="feather-plus-circle"></i>Create</a>
+										<a href="setting.html" class="item ac_item channel_item"><i class="feather-settings"></i>Setting</a>
+										<a href="setting_security_privacy_setting.html" class="item ac_item channel_item"><i class="feather-shield"></i>Privacy</a>
+										<a href="ads.html" class="item ac_item channel_item"><i class="feather-target"></i>Advertising</a>
+										<a href="help_center.html" class="item ac_item channel_item"><i class="feather-life-buoy"></i>Help Center</a>
+										<a href="refunds.html" class="item ac_item channel_item"><i class="feather-repeat"></i>Refunds</a>
+										<a href="setting_language.html" class="item ac_item channel_item mb-2"><i class="feather-globe"></i>Language</a>										
+									</li>
+									<li class="dropdown-menu-footer">
+										<a class="dropdown-item-link text-link text-center" href="sign_in.html">Logout</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<div class="overlay"></div>
+		</div>
+	</header>
+	<!-- Header End -->
+	<!-- Body Start -->
+	<div class="wrapper pt-0">
+		<div class="breadcrumb-pt breadcrumb-bg">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="breadcrumb-title">
+							<nav aria-label="breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+									<li class="breadcrumb-item"><a href="our_blog.html">Our Blog</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Blog Detail View</li>
+								</ol>
+							</nav>
+							<h1 class="title_text">Blog Detail View</h1>							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="blog-wrapper mt-5">
+			<div class="container">
+				<div class="row">					
+					<div class="col-lg-8 col-md-12">			
+						<div class="full-width mb-30">
+							<div class="blog-img">								
+								<img class="blog-img-inner br-10" src="images/blog/img-1.jpg" alt="">
+								<div class="overlay-blog br-10">
+									<div class="blog-overlay-items">
+										<span class="view-blog-badge-cate">Social Media</span>
+										<h1 class="main-blog-title">Blog Title Here</h1>
+										<div class="blog-dt-info">
+											<div class="blog-author-info">
+												<div class="blog-avatar">
+													<img src="images/left-imgs/img-2.jpg" alt="">
+												</div>
+												<div class="blog-author-dt">
+													<a href="#" title="" class="blog-user-name">Jassica William</a>
+													<p>10 May 2021</p>
+												</div>
+											</div>
+											<div class="pull-right-blog-info">
+												<a href="#" class="metaLink">2 Comments</a>
+												<span class="middot">·</span>
+												<span class="views">3 Views</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="full-width mb-30">
+							<div class="blog-item_des">
+								<h4>Blog Title Here</h4>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt augue at est hendrerit, vestibulum pulvinar ipsum sagittis. Vivamus id consequat magna, at lobortis tortor. Suspendisse quis placerat nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Etiam pulvinar consectetur mi, et porta ante consequat eget. Praesent feugiat est et elit auctor, ac hendrerit lectus volutpat. Ut ante eros, tristique ut accumsan id, congue ullamcorper ipsum. Aliquam aliquet odio nec tincidunt semper. Morbi eget tortor non dui luctus maximus. In at rutrum nibh. Ut consequat magna volutpat quam efficitur viverra. Quisque sagittis rutrum rhoncus. Praesent porta ipsum a iaculis ultrices. Pellentesque id purus quam. Morbi auctor nibh ac quam facilisis porttitor.</p>
+								<p>Vivamus imperdiet tempor massa vel tincidunt. Nam at ipsum ut magna condimentum venenatis. Sed bibendum laoreet ipsum et lobortis. In malesuada tincidunt dui id dapibus. Aenean augue lectus, dignissim id augue quis, pellentesque dignissim orci. Nulla faucibus eget tellus ut sagittis. Vivamus elementum turpis ut diam euismod pulvinar. Nam fermentum mauris sed magna hendrerit porta.</p>
+							</div>
+						</div>
+						<div class="full-width">
+							<div class="headtte14m">
+								<span><i class="feather-message-square"></i></span>
+								<h4>2 Comments</h4>
+							</div>
+							<div class="blog-comment-block">
+								<div class="post-commet-textarea">
+									<div class="post-base-1 post_comment_combo">
+										<img src="images/left-imgs/img-1.jpg" alt="">
+										<div class="post-base-1">
+											<textarea class="auto-resize comment-textarea textarea" placeholder="Write a comment" autocomplete="off"></textarea>																						
+										</div>
+										<button class="post-btn btn-hover" type="button">
+											<i class="feather-send"></i>
+										</button>
+									</div>
+								</div>
+								<div class="blog-comment-content-dt mt-35">
+									<div class="comment-block-section">
+										<div class="item-comet-avatar">
+											<img src="images/left-imgs/img-12.jpg" alt="">
+										</div>
+										<div class="we-comment">
+											<div class="wth-link-badge">
+												<a href="#" title="" class="ut-name-link">Zoena Singh</a>
+											</div>
+											<p>Nice</p>
+											<div class="inline-itms">
+												<span>7 hour ago</span>
+												<span class="we-reply leave_a_reply" title="Reply"><i class="feather-message-circle"></i></span>
+												<a href="#" title="Like"><i class="feather-thumbs-up"></i><span class="social-counts-reactions-count">9</span></a>
+											</div>
+										</div>
+									</div>
+									<div class="comment-block-section">
+										<div class="item-comet-avatar">
+											<img src="images/left-imgs/img-1.jpg" alt="">
+										</div>
+										<div class="we-comment">
+											<div class="wth-link-badge">
+												<a href="#" title="" class="ut-name-link">Joginder Singh</a>
+											</div>
+											<p>Awesome</p>
+											<div class="inline-itms">
+												<span>7 hour ago</span>
+												<span class="we-reply leave_a_reply" title="Reply"><i class="feather-message-circle"></i></span>
+												<a href="#" title="Like"><i class="feather-thumbs-up"></i><span class="social-counts-reactions-count">5</span></a>
+												<span class="trash-comment" title="Delete"><i class="feather-trash-2"></i></span>
+											</div>
+										</div>
+									</div>									
+								</div>
+							</div>					
+						</div>					
+					</div>					
+					<div class="col-lg-4 col-md-12">
+						<div class="event-card rrmt-30">
+							<div class="headtte14m">
+								<span><i class="feather-search"></i></span>
+								<h4>Search</h4>
+							</div>
+							<div class="srchinvteus">
+								<div class="main-form">
+									<input class="form_input_1" type="text" placeholder="Keyword">
+								</div>
+							</div>
+						</div>
+						<div class="event-card mt-30">
+							<div class="headtte14m">
+								<span><i class="feather-list"></i></span>
+								<h4>Popular Posts</h4>
+							</div>
+							<div class="blog-list__sections">
+								<ul class="blog-posts__sections p-0">
+									<li class="popular-post-container ember-view">
+										<a href="#" class="blog-popular-post">
+											<img class="blog-post-image" src="images/blog/img-1.jpg" alt="">
+											<div class="blog-post-detail">
+												<h4 class="blog-post-title">Popular Blog Title Here</h4>
+												<span class="blog-author-name ">by <ins>John Doe</ins></span>
+											</div>
+										</a>
+									</li>
+									<li class="popular-post-container ember-view">
+										<a href="#" class="blog-popular-post">
+											<img class="blog-post-image" src="images/blog/img-2.jpg" alt="">
+											<div class="blog-post-detail">
+												<h4 class="blog-post-title">Popular Blog Title Here</h4>
+												<span class="blog-author-name ">by <ins>John Doe</ins></span>
+											</div>
+										</a>
+									</li>
+									<li class="popular-post-container ember-view">
+										<a href="#" class="blog-popular-post">
+											<img class="blog-post-image" src="images/blog/img-3.jpg" alt="">
+											<div class="blog-post-detail">
+												<h4 class="blog-post-title">Popular Blog Title Here</h4>
+												<span class="blog-author-name ">by <ins>John Doe</ins></span>
+											</div>
+										</a>
+									</li>
+									<li class="popular-post-container ember-view">
+										<a href="#" class="blog-popular-post">
+											<img class="blog-post-image" src="images/blog/img-4.jpg" alt="">
+											<div class="blog-post-detail">
+												<h4 class="blog-post-title">Popular Blog Title Here</h4>
+												<span class="blog-author-name ">by <ins>John Doe</ins></span>
+											</div>
+										</a>
+									</li>
+									<li class="popular-post-container ember-view">
+										<a href="#" class="blog-popular-post">
+											<img class="blog-post-image" src="images/blog/img-5.jpg" alt="">
+											<div class="blog-post-detail">
+												<h4 class="blog-post-title">Popular Blog Title Here</h4>
+												<span class="blog-author-name ">by <ins>John Doe</ins></span>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="event-card mt-30">
+							<div class="headtte14m">
+								<span><i class="feather-tag"></i></span>
+								<h4>Categories</h4>
+							</div>
+							<div class="srchinvteus">
+								<a href="#" class="product-features-tags">Cars and Vehicles</a>
+								<a href="#" class="product-features-tags">Comedy</a>
+								<a href="#" class="product-features-tags">Economics and Trade</a>
+								<a href="#" class="product-features-tags">Education</a>
+								<a href="#" class="product-features-tags">Entertainment</a>
+								<a href="#" class="product-features-tags">Social Media</a>
+								<a href="#" class="product-features-tags">Movies & Animation</a>
+								<a href="#" class="product-features-tags">Gaming</a>
+								<a href="#" class="product-features-tags">History and Facts</a>
+								<a href="#" class="product-features-tags">Live Style</a>
+								<a href="#" class="product-features-tags">Natural</a>
+								<a href="#" class="product-features-tags">News and Politics</a>
+								<a href="#" class="product-features-tags">People and Nations</a>
+								<a href="#" class="product-features-tags">Pets and Animals</a>
+								<a href="#" class="product-features-tags">Places and Regions</a>
+								<a href="#" class="product-features-tags">Science and Technology</a>
+								<a href="#" class="product-features-tags">Sport</a>
+								<a href="#" class="product-features-tags">Travel and Events</a>
+								<a href="#" class="product-features-tags">Other</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Body End -->
+	<!-- Footer Start -->
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 col-6">
+					<div class="footer-items">
+						<ul class="footer-links">
+							<li><a href="about_us.html">About Us</a></li>
+							<li><a href="our_blog.html">Blog</a></li>
+							<li><a href="contact_us.html">Contact Us</a></li>
+							<li><a href="#">Terms of Use</a></li>
+							<li><a href="#">Privacy Policy</a></li>
+							<li><a href="#">Request Refund</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-3 col-6">
+					<div class="footer-items">
+						<ul class="footer-links">
+							<li><a href="all_jobs.html">Job Portal</a></li>
+							<li><a href="all_products.html">Digital Marketplace</a></li>
+							<li><a href="all_learning.html">Learning Solutions</a></li>
+							<li><a href="suggested_hashtags.html">Popular Hashtags</a></li>
+							<li><a href="forums.html">Forums</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-3 col-6">
+					<div class="footer-items">
+						<ul class="footer-links">
+							<li><a href="#">Open a Shop</a></li>
+							<li><a href="#">Become an Instructor</a></li>
+							<li><a href="#">Affiliate</a></li>
+							<li><a href="#">Advertise</a></li>
+							<li><a href="feedback.html">Feedback</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-3 col-6">
+					<div class="footer-items">
+						<a href="help_center.html" class="footer-btn">
+							<div class="footer-btn-icon">
+								<i class="feather-help-circle"></i>
+							</div>
+							<div class="footer-btn-text">
+								<span>Help Center</span>
+								<span>Visit our Help Center.</span>
+							</div>
+						</a>
+						<a href="setting.html" class="footer-btn">
+							<div class="footer-btn-icon">
+								<i class="feather-settings"></i>
+							</div>
+							<div class="footer-btn-text">
+								<span>Manage your account and privacy</span>
+								<span>Go to your Settings.</span>
+							</div>
+						</a>
+						<ul class="social-ft-links">
+							<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+							<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+						</ul>
+					</div>
+				</div>				
+			</div>
+		</div>
+		<div class="footer-bottom-items">	
+			<div class="container">
+				<div class="col-md-12">				
+					<div class="footer-bottom-links">
+						<div class="footer-logo">
+							<a href="index.html"><img src="images/dark-logo.png" alt=""></a>
+						</div>
+						<div class="micko-copyright">
+							<p><i class="fas fa-copyright"></i>Copyright 2024 Micko by <a href="#">Gambolthemes</a>. All Right Reserved.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Footer End -->
+
+	<!-- Javascripts -->
+	<script src="js/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="vendor/OwlCarousel/owl.carousel.js"></script>
+	<script src="vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
+	<script src="js/custom.js"></script>
+	<script src="js/night-mode.js"></script>
+
+	
+</body>
+</html>

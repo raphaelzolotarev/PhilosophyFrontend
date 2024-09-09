@@ -1,0 +1,98 @@
+<!-- Body Start -->
+<div class="wrapper">
+    <div class="main-setting">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-lg-4 col-md-12">
+                    <div class="item-setting-tabs mb-0">
+                        <ul class="setting-list">
+                            <li class="active">
+                                <a routerLink="/setting"><i class="feather-settings me-3"></i>{{translations['settings1']}}</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-xl-9 col-lg-8 col-md-12">
+                    <div class="event-card rrmt-30">
+                        <div class="headtte14m item-setting-top">
+                            <span class="color_bb"><i class="feather-edit"></i></span>
+                            <h4>{{translations['settings2']}}</h4>
+                            <a routerLink="/myprofile" class="view-link-btn btn-hover"><i class="feather-user me-2"></i>{{translations['settings3']}}</a>
+                        </div>
+                        <div *ngIf="userInfo" class="item-setting">
+                            <form #addForm="ngForm" #signupForm="ngForm" (ngSubmit)="onEditUser(addForm)">
+                            
+                            <div class="item-padding30 main-form">
+                                <div class="row">																						
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form_group mt-30">
+                                            <label class="label25">{{translations['settings4']}}</label>
+                                            <input [(ngModel)]="userInfo.username" name="username" class="form_input_1" type="text" placeholder="" autocomplete="off" >																								
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form_group mt-30">
+                                            <label class="label25">{{translations['settings5']}}</label>
+                                            <input [(ngModel)]="password" name="password" class="form_input_1" type="password" autocomplete="new-password" value="">                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form_group mt-30">
+                                            <label class="label25">{{translations['settings6']}}</label>
+                                            <input [(ngModel)]="userInfo.email" name="email" class="form_input_1" type="email" placeholder="" >																								
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form_group mt-30">
+                                            <label class="label25">{{translations['settings7']}}</label>
+                                            <div class="">
+                                                <select [(ngModel)]="userInfo.gender" name="gender" class="form_input_1" >
+                                                    <option [selected]="userInfo.gender === 'M'" value="M">{{translations['settings9']}}</option>
+                                                    <option [selected]="userInfo.gender === 'W'" value="W">{{translations['settings10']}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>    
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form_group mt-30">
+                                            <label class="label25">{{translations['settings11']}}</label>
+                                            <input [(ngModel)]="userInfo.profilePhoto" name="profilePhoto" class="form_input_1" type="text" >
+                                            <span class="alt-text">{{translations['settings13']}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form_group mt-30">
+                                            <label class="label25">{{translations['settings12']}}</label>
+                                            <input [(ngModel)]="userInfo.coverPhoto" name="coverPhoto" class="form_input_1" type="text" >
+                                            <span class="alt-text">{{translations['settings13']}}</span>
+                                        </div>
+                                    </div>								
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form_group mt-30">				
+                                            <label class="label25">{{translations['settings14']}}</label>
+                                            <textarea [(ngModel)]="userInfo.bio" name="bio" class="form_textarea_1" placeholder="" ></textarea>																
+                                        </div>
+                                    </div>
+                                </div>				
+                            </div>      
+                                                  
+                            <div class="save-change-btns">
+                                <div id="alertsuccesschanges" style="display: none;" class="alert alert-success align-items-center" role="alert">
+                                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+                                    <div>
+                                        {{translations['settings16']}} <i class="fa-regular fa-square-check"></i> 
+                                    </div>
+                                </div>
+                                <button class="btn-register btn-hover" type="submit" >{{translations['settings15']}}</button>
+                                <button (click)="delete(userInfo.id)" style="background-color: red;" class="btn-register btn-hover" >Delete my account</button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Body End -->

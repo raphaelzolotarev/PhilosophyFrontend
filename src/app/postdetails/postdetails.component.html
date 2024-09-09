@@ -1,0 +1,144 @@
+<!-- Body Start -->
+<div class="wrapper pt-0">
+    <div class="breadcrumb-pt breadcrumb-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="breadcrumb-title">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+                                <li class="breadcrumb-item"><a routerLink="/blog">Blog</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">{{post.title}}</li>
+                            </ol>
+                        </nav>
+                        <h1 class="title_text">{{post.title}}</h1>							
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="blog-wrapper mt-5">
+        <div class="container">
+            <div class="row">					
+                <div class="col-lg-8 col-md-12">			
+                    <div class="full-width mb-30">
+                        <div class="blog-img">								
+                            <img class="blog-img-inner br-10" src="{{post.imageUrl}}" alt="">
+                            <div class="overlay-blog br-10">
+                                <div class="blog-overlay-items">
+                                    <span class="view-blog-badge-cate">{{post.category}}</span>
+                                    <h1 class="main-blog-title">{{post.title}}</h1>
+                                    <div class="blog-dt-info">
+                                        <div class="blog-author-info">
+                                            <div class="blog-avatar">
+                                                <img src="{{post.author.profilePhoto}}" alt="">
+                                            </div>
+                                            <div class="blog-author-dt">
+                                                <a routerLink="/userprofile/{{post.author.id}}" title="" class="blog-user-name">{{post.author.username}}</a>
+                                                <p>{{post.createdAt | date:'dd/MM/yyyy'}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="pull-right-blog-info">
+                                            <span class="views">{{comments.length}} Comments</span>
+                                            <span  class="middot">·</span>
+                                            <span  class="views">{{ likes.length }} Likes</span>
+                                            <button *ngIf="isAuthenticated && !userLikedPost" (click)="like(post.id, user.id)" class="react-button__trigger action-btn"><i class="feather-thumbs-up icon-mr"></i>Like</button>
+                                            <button *ngIf="isAuthenticated && userLikedPost" (click)="dislike(post.id, user.id)" class="react-button__trigger action-btn"><i class="feather-thumbs-up icon-mr"></i>Dislike</button>
+                                            <a *ngIf="isAuthenticated && user.role === 'ADMIN'"  [routerLink]="['/editpost', post.id]"><button  class="react-button__trigger action-btn"><i class="feather-edit icon-mr"></i>Edit</button></a>
+                                            <button *ngIf="isAuthenticated && user.role === 'ADMIN'" (click)="delete(post.id)" class="react-button__trigger action-btn"><i class="feather-trash icon-mr"></i>Delete</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="full-width mb-30">
+                        <div class="blog-item_des">
+                            <h4>{{post.title}}</h4>
+                            <div>
+                                {{post.description}}
+                            </div>
+                        </div>
+                    </div>
+                    <div id="commentsection" class="full-width">
+                        <div class="headtte14m">
+                            <span><i class="feather-message-square"></i></span>
+                            <h4>{{comments.length}} Comments</h4>
+                        </div>
+                        <div class="blog-comment-block">
+                            <div *ngIf="isAuthenticated" class="post-commet-textarea">
+                                <div class="post-base-1 post_comment_combo">
+                                    <img src="{{user.profilePhoto}}" alt="">
+                                    <div class="post-base-1">
+                                        <textarea #commentText class="auto-resize comment-textarea textarea" placeholder="Write a comment" autocomplete="off"></textarea>																						
+                                    </div>
+                                    <button (click)="comment(post.id, user.id, commentText.value)" class="post-btn btn-hover" type="button">
+                                        <i class="feather-send"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div *ngFor="let comment of comments" class="blog-comment-content-dt mt-35">
+                                <div class="comment-block-section">
+                                    <div class="item-comet-avatar">
+                                        <img src="{{comment.user.profilePhoto}}" alt="">
+                                    </div>
+                                    <div class="we-comment">
+                                        <div class="wth-link-badge">
+                                            <a routerLink="/userprofile/{{post.author.id}}" title="" class="ut-name-link">{{comment.user.username}}</a>
+                                        </div>
+                                        <p>{{comment.text}}</p>
+                                        <div class="inline-itms">
+                                            <span>{{ comment.createdAt | date:'dd/MM/yyyy HH:mm' }}</span>
+                                            <span *ngIf="user.role == 'ADMIN' || (comment.user.id === user.id)" (click)="uncomment(comment.id)"><i class="fa-solid fa-trash"></i></span>
+                                        </div>
+                                    </div>
+                                </div>                                								
+                            </div>
+
+                        </div>					
+                    </div>					
+                </div>					
+                <div class="col-lg-4 col-md-12">                    
+                    <div class="event-card ">
+                        <div class="headtte14m">
+                            <span><i class="feather-list"></i></span>
+                            <h4>Popular Posts</h4>
+                        </div>
+                        <div class="blog-list__sections">
+                            <ul class="blog-posts__sections p-0">
+                                <li *ngFor="let post of popularPost" class="popular-post-container ember-view">
+                                    <a routerLink="/postdetails/{{post.id}}" class="blog-popular-post">
+                                        <img class="blog-post-image" src="{{post.imageUrl}}" alt="">
+                                        <div class="blog-post-detail">
+                                            <h4 class="blog-post-title">{{post.title}}</h4>
+                                            <span class="blog-author-name ">by <ins>{{post.author.username}}</ins></span>
+                                        </div>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="event-card mt-30">
+                        <div class="headtte14m">
+                            <span><i class="feather-tag"></i></span>
+                            <h4>Categories</h4>
+                        </div>
+                        <div class="srchinvteus">
+                            <a [routerLink]="['/blog']" [queryParams]="{ tag: 'Zen' }" class="product-features-tags">Zen</a>
+                            <a [routerLink]="['/blog']" [queryParams]="{ tag: 'Tao' }" class="product-features-tags">Tao</a>
+                            <a [routerLink]="['/blog']" [queryParams]="{ tag: 'Yoga' }" class="product-features-tags">Yoga</a>
+                            <a [routerLink]="['/blog']" [queryParams]="{ tag: 'Advaita Vedenta' }" class="product-features-tags">Advaita Vedenta</a>
+                            <a [routerLink]="['/blog']" [queryParams]="{ tag: 'Philosophy' }" class="product-features-tags">Philosophy</a>
+                            <a [routerLink]="['/blog']" [queryParams]="{ tag: 'Theravada' }" class="product-features-tags">Theravada</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Body End -->

@@ -34,8 +34,8 @@
                         </ul>							
                     </div>
                     <div class="posted_1590">
-                        <div class="count-ttl">152</div>
-                        <div class="cate-post">USERS</div>
+                        <div class="count-ttl">{{ allUsers.length }}</div>
+                        <div class="cate-post">{{translations['community1']}}</div>
                     </div>
                     
                 </div>
@@ -45,8 +45,8 @@
                             <img src="assets/images/sirabdul.jpg" alt="">
                             <div class="banner-overlay" style="position: relative;">
                                 <i><span>Leven is mooi</span></i>
-                                <h4>Discover new post from Sir Abdul.</h4>
-                                <button class="main-btn color btn-hover" onclick="window.location.href='all_learning.html'">See</button>
+                                <h4>{{translations['community7']}}</h4>
+                                <button class="main-btn color btn-hover" onclick="window.location.href='all_learning.html'">{{translations['community8']}}</button>
                             </div>
                         </div>
                     </div>
@@ -57,191 +57,61 @@
                     <div class="product-items-list pl_item_search">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="btn-8585 mb-20">
-                                    <a href="my_connections.html" class="afltr-btn">My Connections</a>
-                                    <a href="explore_connections.html" class="afltr-btn afltr-active">Explore</a>
-                                </div>
                                 <div class="full-width mb-4">										
                                     <div class="my_connections_list">
                                         <div class="cntn_top_filter">
-                                            <h4>Follow fresh perspectives</h4>
+                                            <h4>{{translations['community2']}}</h4>
                                         </div>
                                         <div class="cntn_bottom_search">
                                             <div class="row">
                                                 <div class="col-lg-10 col-md-8">
                                                     <div class="form_group">
-                                                        <input class="form_input_1" type="text" placeholder="Search by name and occupation">
+                                                        <!--<input class="form_input_1" type="text" placeholder="Search by name and occupation">-->
+                                                        <input ngModel #keyword="ngModel" class="form_input_1" (ngModelChange)="searchUsers(keyword.value)" name="keyword" type="search" placeholder="{{translations['community3']}}" aria-label="Search">
+
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-2 col-md-4">
-                                                    <button class="post-link-btn color btn-hover w-100 rmt-10">Search</button>					
+                                                    <button class="post-link-btn color btn-hover w-100 rmt-10">{{translations['community4']}}</button>					
                                                 </div>
                                             </div>												
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6">
-                                <div class="ppuser-card mb-4">
-                                    <div class="ppuser-img">															
-                                        <img class="ft-plus-square job-bg-circle bg-cyan me-0" src="assets/images/left-imgs/img-1.jpg" alt="">
-                                    </div>
-                                    <a href="#" class="job-heading text-center mb-0">John Doe</a>
-                                    <p class="notification-text font-small-4 text-center">
-                                        <a href="#" class="occp-dt">UI / UX Designer</a>
-                                        <span class="job-loca">
-                                            <i class="feather-navigation"></i>
-                                            <ins class="state-name">Ludhiana,</ins> India
-                                        </span>
-                                        <a href="#" class="oflst130"><i class="feather-users me-2"></i>36 Connections &amp; 3 Mutual</a>
-                                    </p>
-                                    <button class="act-btn btn-hover" type="button"><i class="feather-user-plus me-2"></i>Connect</button>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6">
-                                <div class="ppuser-card mb-4">
-                                    <div class="ppuser-img">															
-                                        <img class="ft-plus-square job-bg-circle bg-cyan me-0" src="assets/images/left-imgs/img-2.jpg" alt="">
-                                    </div>
-                                    <a href="#" class="job-heading text-center mb-0">Jassica William</a>
-                                    <p class="notification-text font-small-4 text-center">
-                                        <a href="#" class="occp-dt">HR Manager</a>
-                                        <span class="job-loca">
-                                            <i class="feather-navigation"></i>
-                                            <ins class="state-name">Chandigarh,</ins> India
-                                        </span>
-                                        <a href="#" class="oflst130"><i class="feather-users me-2"></i>14 Connections &amp; 1 Mutual</a>
-                                    </p>
-                                    <button class="act-btn btn-hover" type="button"><i class="feather-user-plus me-2"></i>Connect</button>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6">
-                                <div class="ppuser-card mb-4">
-                                    <div class="ppuser-img">															
-                                        <img class="ft-plus-square job-bg-circle bg-cyan me-0" src="assets/images/left-imgs/img-3.jpg" alt="">
-                                    </div>
-                                    <a href="#" class="job-heading text-center mb-0">Rock William</a>
-                                    <p class="notification-text font-small-4 text-center">
-                                        <a href="#" class="occp-dt">Php Developer</a>
-                                        <span class="job-loca">
-                                            <i class="feather-navigation"></i>
-                                            <ins class="state-name">Noida,</ins> India
-                                        </span>
-                                        <a href="#" class="oflst130"><i class="feather-users me-2"></i>25 Connections &amp; 4 Mutual</a>
-                                    </p>
-                                    <button class="act-btn btn-hover" type="button"><i class="feather-user-plus me-2"></i>Connect</button>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6">
-                                <div class="ppuser-card mb-4">
-                                    <div class="ppuser-img">															
-                                        <img class="ft-plus-square job-bg-circle bg-cyan me-0" src="assets/images/left-imgs/img-4.jpg" alt="">
-                                    </div>
-                                    <a href="#" class="job-heading text-center mb-0">Sabnam Singh</a>
-                                    <p class="notification-text font-small-4 text-center">
-                                        <a href="#" class="occp-dt">WordPress Developer</a>
-                                        <span class="job-loca">
-                                            <i class="feather-navigation"></i>
-                                            <ins class="state-name">Kathmandu,</ins> Nepal
-                                        </span>
-                                        <a href="#" class="oflst130"><i class="feather-users me-2"></i>75 Connections &amp; 12 Mutual</a>
-                                    </p>
-                                    <button class="act-btn btn-hover" type="button"><i class="feather-user-plus me-2"></i>Connect</button>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6">
-                                <div class="ppuser-card mb-4">
-                                    <div class="ppuser-img">															
-                                        <img class="ft-plus-square job-bg-circle bg-cyan me-0" src="assets/images/left-imgs/img-5.jpg" alt="">
-                                    </div>
-                                    <a href="#" class="job-heading text-center mb-0">Johnson</a>
-                                    <p class="notification-text font-small-4 text-center">
-                                        <a href="#" class="occp-dt">Accountant</a>
-                                        <span class="job-loca">
-                                            <i class="feather-navigation"></i>
-                                            <ins class="state-name">Ludhiana,</ins> India
-                                        </span>
-                                        <a href="#" class="oflst130"><i class="feather-users me-2"></i>15 Connections &amp; 1 Mutual</a>
-                                    </p>
-                                    <button class="act-btn btn-hover" type="button"><i class="feather-user-plus me-2"></i>Connect</button>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6">
-                                <div class="ppuser-card mb-4">
-                                    <div class="ppuser-img">															
-                                        <img class="ft-plus-square job-bg-circle bg-cyan me-0" src="assets/images/left-imgs/img-6.jpg" alt="">
-                                    </div>
-                                    <a href="#" class="job-heading text-center mb-0">Hemani Shankar</a>
-                                    <p class="notification-text font-small-4 text-center">
-                                        <a href="#" class="occp-dt">Relationship Manager</a>
-                                        <span class="job-loca">
-                                            <i class="feather-navigation"></i>
-                                            <ins class="state-name">Mumbai,</ins> India
-                                        </span>
-                                        <a href="#" class="oflst130"><i class="feather-users me-2"></i>45 Connections &amp; 5 Mutual</a>
-                                    </p>
-                                    <button class="act-btn btn-hover" type="button"><i class="feather-user-plus me-2"></i>Connect</button>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6">
-                                <div class="ppuser-card mb-4">
-                                    <div class="ppuser-img">															
-                                        <img class="ft-plus-square job-bg-circle bg-cyan me-0" src="assets/images/left-imgs/img-7.jpg" alt="">
-                                    </div>
-                                    <a href="#" class="job-heading text-center mb-0">Joginder Singh</a>
-                                    <p class="notification-text font-small-4 text-center">
-                                        <a href="#" class="occp-dt">Front End Developer</a>
-                                        <span class="job-loca">
-                                            <i class="feather-navigation"></i>
-                                            <ins class="state-name">Ludhiana,</ins> India
-                                        </span>
-                                        <a href="#" class="oflst130"><i class="feather-users me-2"></i>23 Connections &amp; 1 Mutual</a>
-                                    </p>
-                                    <button class="act-btn btn-hover" type="button"><i class="feather-user-plus me-2"></i>Connect</button>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6">
-                                <div class="ppuser-card mb-4">
-                                    <div class="ppuser-img">															
-                                        <img class="ft-plus-square job-bg-circle bg-cyan me-0" src="assets/images/left-imgs/img-8.jpg" alt="">
-                                    </div>
-                                    <a href="#" class="job-heading text-center mb-0">Davinder Singh</a>
-                                    <p class="notification-text font-small-4 text-center">
-                                        <a href="#" class="occp-dt">UI / UX Designer</a>
-                                        <span class="job-loca">
-                                            <i class="feather-navigation"></i>
-                                            <ins class="state-name">Ludhiana,</ins> India
-                                        </span>
-                                        <a href="#" class="oflst130"><i class="feather-users me-2"></i>55 Connections &amp; 3 Mutual</a>
-                                    </p>
-                                    <button class="act-btn btn-hover" type="button"><i class="feather-user-plus me-2"></i>Connect</button>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6">
-                                <div class="ppuser-card mb-4">
-                                    <div class="ppuser-img">															
-                                        <img class="ft-plus-square job-bg-circle bg-cyan me-0" src="assets/images/left-imgs/img-10.jpg" alt="">
-                                    </div>
-                                    <a href="#" class="job-heading text-center mb-0">John Doe</a>
-                                    <p class="notification-text font-small-4 text-center">
-                                        <a href="#" class="occp-dt">UI / UX Designer</a>
-                                        <span class="job-loca">
-                                            <i class="feather-navigation"></i>
-                                            <ins class="state-name">Ludhiana,</ins> India
-                                        </span>
-                                        <a href="#" class="oflst130"><i class="feather-users me-2"></i>36 Connections &amp; 3 Mutual</a>
-                                    </p>
-                                    <button class="act-btn btn-hover" type="button"><i class="feather-user-plus me-2"></i>Connect</button>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="loading-btn">
-                                    <button class="process-btn btn-hover" type="button">
-                                        <i class="fa-solid fa-spinner fa-spin"></i>
-                                        Loading...
-                                    </button>
-                                </div>
-                            </div>								
+
+                            <!--FOORLOOP WITH ALL USERS-->
+                            <ng-container *ngFor="let user of allUsers" >
+                                <div class="col-xl-4 col-lg-6 col-md-6" *ngIf="canDo || (userInfo && user.id !== userInfo.id)"                                >
+                                    <div class="ppuser-card mb-4">
+                                        <div class="ppuser-img">															
+                                            <img class="ft-plus-square job-bg-circle bg-cyan me-0" src="{{ user.profilePhoto }}" alt="">
+                                        </div>
+                                        <a routerLink="/userprofile/{{user.id}}" class="job-heading text-center mb-0">{{ user.username }}</a>
+                                        <p class="notification-text font-small-4 text-center">
+                                            <span class="">
+                                                <i class="fa-regular fa-user"></i>
+                                                <span *ngIf="user.role === 'USER'" > {{translations['myprofile18']}}</span>
+                                                <span *ngIf="user.role === 'ADMIN'" > {{translations['myprofile19']}}</span>
+                                            </span><br>
+                                            <span class="">
+                                                <i class="fa-solid fa-venus-mars"></i>
+                                                <span *ngIf="user.gender === 'M'" > {{translations['myprofile16']}}</span>
+                                                <span *ngIf="user.gender === 'W'" > {{translations['myprofile17']}}</span>
+                                            </span><br>
+                                            <span class="">
+                                                <i class="fa-regular fa-flag"></i>
+                                                <span *ngIf="user.preferredLanguage === 'EN'" > {{translations['myprofile13']}}</span>
+                                                <span *ngIf="user.preferredLanguage === 'FR'" > {{translations['myprofile14']}}</span>
+                                                <span *ngIf="user.preferredLanguage === 'NL'" > {{translations['myprofile15']}}</span>
+                                            </span><br>
+                                        </p>
+                                        <button *ngIf="!isUserFollowed(user.id) && userInfo" class="act-btn btn-hover" type="button" (click)="followUser(user.id)"><i class="feather-user-plus me-2" ></i>{{translations['community5']}} </button>
+                                        <button *ngIf="isUserFollowed(user.id)" class="act-btn btn-hover" type="button" (click)="unFollowUser(user.id)"><i class="feather-user-minus me-2" ></i>{{translations['community6']}} </button>
+                                    
+                                </div>   
+                            </div>  </ng-container>                   
+                            							
                         </div>
                     </div>
                 </div>
