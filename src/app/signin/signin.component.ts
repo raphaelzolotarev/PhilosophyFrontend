@@ -15,9 +15,9 @@ import { AuthenticationService } from '../authentication.service';
 })
 export class SigninComponent {
 
-  isPasswordVisible: boolean = false;  
-  username: string = '';
-  password: string = '';
+  public isPasswordVisible: boolean = false;  
+  public username: string = '';
+  public password: string = '';
   public isAuthenticated: boolean = false;
   public translations: { [key: string]: string }  = TRANSLATION_EN;
 

@@ -46,7 +46,7 @@
                             <div class="banner-overlay" style="position: relative;">
                                 <i><span>Leven is mooi</span></i>
                                 <h4>{{translations['community7']}}</h4>
-                                <button class="main-btn color btn-hover" onclick="window.location.href='all_learning.html'">{{translations['community8']}}</button>
+                                <button class="main-btn color btn-hover" routerLink="/postdetails/6">{{translations['community8']}}</button>
                             </div>
                         </div>
                     </div>
@@ -66,7 +66,6 @@
                                             <div class="row">
                                                 <div class="col-lg-10 col-md-8">
                                                     <div class="form_group">
-                                                        <!--<input class="form_input_1" type="text" placeholder="Search by name and occupation">-->
                                                         <input ngModel #keyword="ngModel" class="form_input_1" (ngModelChange)="searchUsers(keyword.value)" name="keyword" type="search" placeholder="{{translations['community3']}}" aria-label="Search">
 
                                                     </div>
@@ -108,9 +107,9 @@
                                         </p>
                                         <button *ngIf="!isUserFollowed(user.id) && userInfo" class="act-btn btn-hover" type="button" (click)="followUser(user.id)"><i class="feather-user-plus me-2" ></i>{{translations['community5']}} </button>
                                         <button *ngIf="isUserFollowed(user.id)" class="act-btn btn-hover" type="button" (click)="unFollowUser(user.id)"><i class="feather-user-minus me-2" ></i>{{translations['community6']}} </button>
-                                    
-                                </div>   
-                            </div>  </ng-container>                   
+                                    </div>   
+                                </div>  
+                            </ng-container>                   
                             							
                         </div>
                     </div>

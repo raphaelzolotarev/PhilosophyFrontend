@@ -1,4 +1,4 @@
-import { Component, ElementRef, Renderer2 } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet, RouterModule, Router, ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common'; 
 import { TRANSLATION_EN } from '../translation';
@@ -37,15 +37,17 @@ export class PostdetailsComponent {
   }
 
   ngOnInit() {
+    //recent posts
     this.postService.getRecentPosts().subscribe({
       next: (posts) => {
-        this.popularPost = posts;  // Assign the fetched posts
+        this.popularPost = posts; 
       },
       error: (err) => {
         console.error('Error fetching popular posts:', err);
-        this.popularPost = [];  // In case of error, set it to an empty array
+        this.popularPost = []; 
       }
     });
+
     this.route.paramMap.subscribe(params => {
         this.postId = params.get('id'); 
         if (this.postId) {
@@ -62,9 +64,7 @@ export class PostdetailsComponent {
                 error: (error) => {
                     this.router.navigate(['/blog']);
                 }
-            });
-
-            
+            });            
 
             this.likeService.getLikesByPostId(Number(this.postId)).subscribe({
                 next: (response: Like[]) => {
@@ -77,8 +77,6 @@ export class PostdetailsComponent {
                     console.error('Error fetching likes:', err);
                 }
             });
-
-
             
             this.commentService.getCommentsByPostId(Number(this.postId)).subscribe({
                 next: (response: Comment[]) => {
@@ -88,8 +86,6 @@ export class PostdetailsComponent {
                     console.error('Error fetching comments:', err);
                 }
             });
-
-
             
         }
     });
@@ -110,27 +106,7 @@ export class PostdetailsComponent {
         }
     });
 
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   //LIKE POST
   like(postId: number, userId: number): void {

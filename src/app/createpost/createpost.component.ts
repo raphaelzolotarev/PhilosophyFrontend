@@ -17,14 +17,15 @@ import { User } from '../user';
   templateUrl: './createpost.component.html',
   styleUrl: './createpost.component.scss'
 })
+
 export class CreatepostComponent {
 
   //form
-  author: User | null = null;
-  title: string = '';
-  imageUrl: string = '';
-  category : string = '';
-  description: string = '';
+  public author: User | null = null;
+  public title: string = '';
+  public imageUrl: string = '';
+  public category : string = '';
+  public description: string = '';
 
   //user status
   public userInfo: any = null;
@@ -43,7 +44,7 @@ export class CreatepostComponent {
         this.translationService.translations$.subscribe(translations => this.translations = translations);
       
         //only admin has access
-        if(this.userInfo.role == 'USER'){
+        if(!this.isAuthenticated || this.userInfo.role == 'USER'){
           this.router.navigate(['/']);
         }        
         this.author = this.userInfo;
@@ -52,7 +53,7 @@ export class CreatepostComponent {
   }
 
     //CREATE NEW POST
-    public onAddPost(addForm: NgForm): void{
+    onAddPost(addForm: NgForm): void{
       this.postService.addPost(addForm.value).subscribe({
         next: (response: Post) => {
             this.router.navigate(['/blog']).then(() => {

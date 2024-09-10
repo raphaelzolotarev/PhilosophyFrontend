@@ -22,14 +22,13 @@ export class SignupComponent {
 
   isPasswordVisible: boolean = false;
  
-  username: string = '';
-  password: string = '';
-  email: string = '';
-  gender: string = '';
-  preferredLanguage: string = '';
-  termsAccepted: boolean = false;
+  public username: string = '';
+  public password: string = '';
+  public email: string = '';
+  public gender: string = '';
+  public preferredLanguage: string = '';
+  public termsAccepted: boolean = false;
   public isAuthenticated: boolean = false;
-
   public translations: { [key: string]: string }  = TRANSLATION_EN;
 
   constructor(private userService: UserService, private translationService: TranslationService, private router: Router, private authenticationService: AuthenticationService) {    }
@@ -51,7 +50,7 @@ export class SignupComponent {
   }
 
   //REGISTRATION PROCESS
-  public onAddUser(addForm: NgForm): void{
+  onAddUser(addForm: NgForm): void{
     //1. create user
     this.userService.addUser(addForm.value).subscribe({
       next: (response: User) => {

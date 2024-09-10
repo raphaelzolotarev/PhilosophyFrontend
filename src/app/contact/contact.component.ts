@@ -12,6 +12,7 @@ import { AuthenticationService } from '../authentication.service';
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })
+
 export class ContactComponent {
 
   //user status

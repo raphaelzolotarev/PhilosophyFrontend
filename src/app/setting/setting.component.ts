@@ -19,9 +19,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 
 export class SettingComponent {
 
-  //FORM
-  password: string = '';
-
+  public password: string = '';
   public userInfo: any = null;
   public isAuthenticated: boolean = false;
   public translations: { [key: string]: string }  = TRANSLATION_EN;
@@ -46,7 +44,7 @@ export class SettingComponent {
 
 
   //EDIT USER
-  public onEditUser(addForm: NgForm): void{     
+  onEditUser(addForm: NgForm): void{     
     const formData = {
       ...addForm.value,  
       id: this.userInfo.id,
@@ -65,7 +63,7 @@ export class SettingComponent {
 
 
   //SUCCESS ALERT
-  public showAlertSuccess(): void {
+  showAlertSuccess(): void {
     const alertElement = document.getElementById('alertsuccesschanges');
     if (alertElement) {
       alertElement.classList.add('d-flex');
@@ -79,7 +77,7 @@ export class SettingComponent {
 
   
   //DELETE USER
-  public delete(userId: number): void{ 
+  delete(userId: number): void{ 
     this.userService.deleteUser(userId).subscribe({
       next: (response) => {
         window.location.href = '/';

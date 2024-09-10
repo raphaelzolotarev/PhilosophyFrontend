@@ -1,4 +1,3 @@
-import { Like } from './like';
 export interface User {
     id : number;
     username: string;
@@ -14,5 +13,3 @@ export interface User {
     following : User[];
     followers : User[];
 }
-
-

@@ -18,16 +18,7 @@ export class AppComponent implements OnInit {
   
   ngOnInit(): void {
     this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {        
-        //reload setting page for the form bug
-        /*if (event.url === '/setting') {
-          if (!localStorage.getItem('settingsPageReloaded')) {
-            localStorage.setItem('settingsPageReloaded', 'true');
-            window.location.reload();
-          } else {
-            localStorage.removeItem('settingsPageReloaded');
-          }
-        }*/
+      if (event instanceof NavigationEnd) {      
         //always top of the page
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
@@ -35,6 +26,7 @@ export class AppComponent implements OnInit {
 
   }
 
+  //fix some css bugs
   ngAfterViewInit() {
     setTimeout(() => {
       document.body.classList.add('reflow');

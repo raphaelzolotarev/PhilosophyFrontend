@@ -105,6 +105,8 @@ export const TRANSLATION_EN: { [key: string]: string } = {
     'myprofile21': `Dislike`,
     'myprofile22': `Edit post`,
     'myprofile23': `See post`,
+    'myprofile24': `Follow`,
+    'myprofile25': `Unfollow`,
     
     'menuForLogged1': `Night mode`,
     'menuForLogged2': `My profile`,
@@ -284,6 +286,8 @@ export const TRANSLATION_EN: { [key: string]: string } = {
     'myprofile21': `J\aime pas`,
     'myprofile22': `Editer`,
     'myprofile23': `Voir le post`,
+    'myprofile24': `Suivre`,
+    'myprofile25': `Ne plus suivre`,
 
     'menuForLogged1': `Mode nuit`,
     'menuForLogged2': `Mon profil`,
@@ -309,7 +313,6 @@ export const TRANSLATION_EN: { [key: string]: string } = {
     'settings16': 'Informations du profil mises à jour',   
     'settings17': 'Supprimer mon compte',
 
-
     'community1': 'utilisateurs',
     'community2': 'Vous pouvez rechercher un utilisateur par son nom d\'utilisateur',
     'community3': 'Tapez un mot-clé...',
@@ -330,7 +333,6 @@ export const TRANSLATION_EN: { [key: string]: string } = {
     'post9': 'Supprimer',
     'post10': 'par',   
     'post11': 'Écrire un commentaire',
-
 
     'editpost1': 'Accueil',
     'editpost2': 'Modifier le post',
@@ -466,6 +468,8 @@ export const TRANSLATION_EN: { [key: string]: string } = {
     'myprofile21': `Niet leuk`,
     'myprofile22': `Bewerken`,
     'myprofile23': `Kijken`,
+    'myprofile24': `Volgen`,
+    'myprofile25': `Ontvolgen`,
 
     'menuForLogged1': `Nachtmodus`,
     'menuForLogged2': `Mijn profiel`,
@@ -491,7 +495,6 @@ export const TRANSLATION_EN: { [key: string]: string } = {
     'settings16': 'Profielinformatie bijgewerkt',   
     'settings17': 'Verwijder mijn account',
 
-
     'community1': 'gebruikers',
     'community2': 'Je kunt een gebruiker zoeken op zijn gebruikersnaam',
     'community3': 'Typ een trefwoord...',
@@ -512,7 +515,6 @@ export const TRANSLATION_EN: { [key: string]: string } = {
     'post9': 'Verwijderen',
     'post10': 'van',   
     'post11': 'Schrijf een reactie',
-
  
     'editpost1': 'Home',
     'editpost2': 'Bericht bewerken',

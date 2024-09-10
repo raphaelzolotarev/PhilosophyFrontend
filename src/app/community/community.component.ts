@@ -48,11 +48,10 @@ export class CommunityComponent {
       this.translationService.translations$.subscribe(translations => this.translations = translations);     
       this.userService.getUsers().subscribe(users => {this.allUsers = users;}); 
       
-    });
-    
+    });    
   }
 
-  //follow user button
+  //follow & unfollow methods
   followUser(targetUserId: number): void {
     const currentUserId = this.userInfo.id;
     this.userService.followUser(currentUserId, targetUserId).subscribe({
@@ -83,7 +82,7 @@ export class CommunityComponent {
     return this.userInfo?.following?.some((user: any) => user.id === userId);
   }
 
-  //search 
+  //search method
   searchUsers(keyword: string | null): void {
     if(keyword == null) keyword="";
     this.userService.searchUsers(keyword).subscribe({

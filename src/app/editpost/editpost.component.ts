@@ -17,17 +17,19 @@ import { User } from '../user';
   templateUrl: './editpost.component.html',
   styleUrl: './editpost.component.scss'
 })
+
 export class EditpostComponent {
 
+  //post to edit
   public postId: string | null = null;
   public post: any = null;
 
   //form
-  author: User | null = null;
-  title: string = '';
-  imageUrl: string = '';
-  category : string = '';
-  description: string = '';
+  public author: User | null = null;
+  public title: string = '';
+  public imageUrl: string = '';
+  public category : string = '';
+  public description: string = '';
 
   //user status
   public userInfo: any = null;
@@ -65,7 +67,7 @@ export class EditpostComponent {
         this.translationService.translations$.subscribe(translations => this.translations = translations);
       
         //only admin has access
-        if(this.userInfo.role == 'USER'){
+        if(!this.isAuthenticated || this.userInfo.role == 'USER'){
           this.router.navigate(['/']);
         }        
         this.author = this.userInfo;
@@ -74,7 +76,7 @@ export class EditpostComponent {
   }
 
     //EDIT POST
-    public updatePost(addForm: NgForm): void   { 
+    updatePost(addForm: NgForm): void   { 
       const formData = {
         ...addForm.value,  
         id: this.postId         
@@ -91,6 +93,5 @@ export class EditpostComponent {
         }
       });
     }
-
 
 }

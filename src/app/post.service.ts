@@ -1,6 +1,6 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Post } from './post';
 import { environment } from "../environments/environment";
 
@@ -55,6 +55,7 @@ export class PostService {
   public likePost(postID: number, userID: number): Observable<void>{
     return this.http.post<void>(`${this.apiServerUrl}/posts/like/${postID}`, null, { params: { userId: userID.toString() }});
   }
+
   //DISLIKE
   public dislikePost(postID: number, userID: number): Observable<void>{
     return this.http.post<void>(`${this.apiServerUrl}/posts/dislike/${postID}`, null, { params: { userId: userID.toString() }});
@@ -64,6 +65,7 @@ export class PostService {
   public comentPost(postID: number, userID: number, text: string): Observable<void>{
     return this.http.post<void>(`${this.apiServerUrl}/posts/comment/${postID}`, null, { params: {userId: userID.toString(), text: text} });
   }
+
   //UNCOMMENT
   public uncommentPost(commentId: number): Observable<void>{
     return this.http.post<void>(`${this.apiServerUrl}/posts/uncomment/${commentId}`, {});
@@ -78,7 +80,5 @@ export class PostService {
     if (!keyword || keyword.trim() === "") return this.getPosts();
     return this.http.get<Post[]>(`${this.apiServerUrl}/posts/searchtag/${keyword}`);
   }
-
-
 
 }

@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, } from 'rxjs';
 import { User } from './user';
 import { environment } from "../environments/environment";
 
@@ -11,7 +11,6 @@ import { environment } from "../environments/environment";
 export class UserService {
   
   private apiServerUrl = environment.apiBaseUrl;
-
   private isInitialized = new BehaviorSubject<boolean>(false);
   public isInitialized$ = this.isInitialized.asObservable();
 
@@ -58,15 +57,16 @@ export class UserService {
   public getFollowing(userId: number): Observable<User[]> {
     return this.http.get<User[]>(`${this.apiServerUrl}/users/following/${userId}`, {});
   }  
+
+  //SEARCH
   public searchUsers(keyword: String): Observable<User[]>{
       if (!keyword || keyword.trim() === "") return this.getUsers();
       return this.http.get<User[]>(`${this.apiServerUrl}/users/search/${keyword}`);
   }
 
+  //DELETE
   public deleteUser(userID: number): Observable<void>{
     return this.http.delete<void>(`${this.apiServerUrl}/users/delete/${userID}`);
   }
-
-
 
 }

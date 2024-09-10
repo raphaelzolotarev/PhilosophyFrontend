@@ -39,7 +39,7 @@ export class BlogComponent {
   }
   
 
-      //search 
+      //search methods
       searchPosts(keyword: string | null): void {
         if(keyword == null) keyword="";
         this.postService.searchPosts(keyword).subscribe({

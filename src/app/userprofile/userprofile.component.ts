@@ -11,9 +11,6 @@ import { Like } from '../like';
 import { PostService } from '../post.service';
 import { Post } from '../post';
 
-import { forkJoin } from 'rxjs';
-
-
 @Component({
   selector: 'app-userprofile',
   standalone: true,
@@ -21,126 +18,31 @@ import { forkJoin } from 'rxjs';
   templateUrl: './userprofile.component.html',
   styleUrl: './userprofile.component.scss'
 })
-export class UserprofileComponent {
 
+export class UserprofileComponent {
   
   public userId: string | null = null;
   public profileInfo: any = null;
   public userInfo: any = null;
   public isAuthenticated: boolean = false;
   public translations: { [key: string]: string }  = TRANSLATION_EN;
-  
   public followers: User[] = [];
   public following: User[] = [];
   public likes : Like[] = [];
   public posts : Post[] = [];
-
   public showFollowing = true;
 
-
-constructor(private route: ActivatedRoute, private userService : UserService, private postService : PostService, private likeService : LikeService, private renderer: Renderer2, private el: ElementRef, private translationService: TranslationService, private authenticationService : AuthenticationService, private router: Router) {
-  
-
-
-  }
-
-/*
-//IF NOT LOGGED REDIRECT
-  ngOnInit() {
-
-    this.route.paramMap.subscribe(params => {
-      this.userId = params.get('id');         
-
-      this.userService.getUser(Number(this.userId)).subscribe({
-        next: (user: User) => {
-          this.profileInfo = user;
-          
-          if(this.userInfo.id == this.profileInfo.id){
-            window.location.href = '/myprofile';
-          }
-
-          this.userService.getFollowers(this.profileInfo.id).subscribe({
-            next: (followers: User[]) => {
-              this.followers = followers;
-              console.log('Followers:', this.followers);
-            },
-            error: (error) => {
-              console.error('Error fetching followers:', error);
-            }
-          });
-        
-          // Fetch following
-          this.userService.getFollowing(this.profileInfo.id).subscribe({
-            next: (following: User[]) => {
-              this.following = following; 
-              console.log('Following:', this.following);
-            },
-            error: (error) => {
-              console.error('Error fetching following:', error);
-            }
-          });
-  
-
-
-        },
-        error: (error) => {
-          this.router.navigate(['/']);
-        }
-      });
-
-    });
-    
-
-    this.authenticationService.isInitialized$.subscribe((isInitialized) => {
-      if (isInitialized) {
-        this.authenticationService.isAuthenticated$.subscribe(isAuthenticated => {
-          this.isAuthenticated = isAuthenticated; 
-          this.authenticationService.userInfo$.subscribe(userInfo => this.userInfo = userInfo);
-          this.translationService.translations$.subscribe(translations => this.translations = translations);
-        
-                
-        });  
-                     
-
-        this.likeService.getLikesByUserId(Number(this.profileInfo.id)).subscribe({
-          next: (response: Like[]) => {
-            this.likes = response;
-          },
-          error: (err: any) => {
-            console.error('Error fetching likes:', err);
-          }
-        });
-
-        this.postService.getPostsByUserId(this.profileInfo.id).subscribe({
-          next: (response: Post[]) => {
-            this.posts = response;
-          },
-          error: (err: any) => {
-            console.error('Error fetching posts:', err);
-          }
-        });
-        
-      }
-    });
-  }
-*/
+constructor(private route: ActivatedRoute, private userService : UserService, private postService : PostService, private likeService : LikeService, private renderer: Renderer2, private el: ElementRef, private translationService: TranslationService, private authenticationService : AuthenticationService, private router: Router) {  }
 
 ngOnInit() {
-
-  // First, get the user ID from the route params (no authentication required for this)
   this.route.paramMap.subscribe(params => {
     this.userId = params.get('id');
 
     if (this.userId) {
-      // Fetch the user profile
       this.userService.getUser(Number(this.userId)).subscribe({
         next: (user: User) => {
           this.profileInfo = user;
-
-          // Fetch likes and posts for any profile, whether the user is authenticated or not
           this.fetchLikesAndPosts(this.profileInfo.id);
-
-          // If the current user is viewing their own profile, redirect to /myprofile
           this.authenticationService.userInfo$.subscribe(userInfo => {
             this.userInfo = userInfo;
             if (this.userInfo?.id === this.profileInfo.id) {
@@ -149,7 +51,6 @@ ngOnInit() {
             }
           });
 
-          // Fetch followers and following regardless of authentication
           this.fetchFollowersAndFollowing(this.profileInfo.id);
         },
         error: (error) => {
@@ -160,7 +61,6 @@ ngOnInit() {
     }
   });
 
-
   this.authenticationService.isAuthenticated$.subscribe(isAuthenticated => {
     this.isAuthenticated = isAuthenticated; 
     this.authenticationService.userInfo$.subscribe(userInfo => this.userInfo = userInfo);
@@ -168,8 +68,12 @@ ngOnInit() {
   });  
 }
 
+
+
+
+
+//FETCH FOLLOWERS AND FOLLOWING
 fetchFollowersAndFollowing(userId: number) {
-  // Fetch followers
   this.userService.getFollowers(userId).subscribe({
     next: (followers: User[]) => {
       this.followers = followers;
@@ -180,7 +84,6 @@ fetchFollowersAndFollowing(userId: number) {
     }
   });
 
-  // Fetch following
   this.userService.getFollowing(userId).subscribe({
     next: (following: User[]) => {
       this.following = following;
@@ -192,8 +95,8 @@ fetchFollowersAndFollowing(userId: number) {
   });
 }
 
+//FETCH LIKES AND POSTS
 fetchLikesAndPosts(userId: number) {
-  // Fetch likes
   this.likeService.getLikesByUserId(userId).subscribe({
     next: (response: Like[]) => {
       this.likes = response;
@@ -203,7 +106,6 @@ fetchLikesAndPosts(userId: number) {
     }
   });
 
-  // Fetch posts
   this.postService.getPostsByUserId(userId).subscribe({
     next: (response: Post[]) => {
       this.posts = response;
@@ -213,22 +115,6 @@ fetchLikesAndPosts(userId: number) {
     }
   });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   //tab navigation
@@ -254,7 +140,6 @@ fetchLikesAndPosts(userId: number) {
     linkFollower.classList.remove('afltr-active');
     this.showFollowing = true;
   }
-
   toggleFollower(): void {
     const linkFollowing = document.getElementById('linkfollowing') as HTMLElement;
     const linkFollower = document.getElementById('linkfollower') as HTMLElement;
@@ -263,7 +148,9 @@ fetchLikesAndPosts(userId: number) {
     this.showFollowing = false;
   }
 
-  //follow/unfollow    
+
+
+  //follow/unfollow method   
   unFollowUser(targetUserId: number): void {
     const currentUserId = this.userInfo.id;
     this.userService.unFollowUser(currentUserId, targetUserId).subscribe({

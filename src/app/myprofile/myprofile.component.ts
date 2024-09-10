@@ -23,13 +23,11 @@ export class MyprofileComponent {
 
   public userInfo: any = null;
   public isAuthenticated: boolean = false;
-  public translations: { [key: string]: string }  = TRANSLATION_EN;
-  
+  public translations: { [key: string]: string }  = TRANSLATION_EN;  
   public followers: User[] = [];
   public following: User[] = [];
   public likes : Like[] = [];
   public posts : Post[] = [];
-
   public showFollowing = true;
 
   constructor(private userService : UserService, private postService : PostService, private likeService : LikeService, private renderer: Renderer2, private el: ElementRef, private translationService: TranslationService, private authenticationService : AuthenticationService, private router: Router) {  }
@@ -58,7 +56,6 @@ export class MyprofileComponent {
             }
           });
         
-          // Fetch following
           this.userService.getFollowing(this.userInfo.id).subscribe({
             next: (following: User[]) => {
               this.following = following; 
@@ -115,7 +112,6 @@ export class MyprofileComponent {
       linkFollower.classList.remove('afltr-active');
       this.showFollowing = true;
     }
-
     toggleFollower(): void {
       const linkFollowing = document.getElementById('linkfollowing') as HTMLElement;
       const linkFollower = document.getElementById('linkfollower') as HTMLElement;
@@ -124,8 +120,7 @@ export class MyprofileComponent {
       this.showFollowing = false;
     }
 
-
-    //follow/unfollow    
+    //follow/unfollow methods 
     unFollowUser(targetUserId: number): void {
       const currentUserId = this.userInfo.id;
       this.userService.unFollowUser(currentUserId, targetUserId).subscribe({

@@ -87,7 +87,7 @@
                                     </div>
                                     <div class="we-comment">
                                         <div class="wth-link-badge">
-                                            <a routerLink="/userprofile/{{post.author.id}}" title="" class="ut-name-link">{{comment.user.username}}</a>
+                                            <a routerLink="/userprofile/{{comment.user.id}}" title="" class="ut-name-link">{{comment.user.username}}</a>
                                         </div>
                                         <p>{{comment.text}}</p>
                                         <div class="inline-itms">
@@ -109,7 +109,6 @@
                         </div>
                         <div class="blog-list__sections">
                             <ul class="blog-posts__sections p-0" *ngIf="popularPost">
-
                                 <li *ngFor="let post of popularPost" class="popular-post-container ember-view">
                                     <a routerLink="/postdetails/{{post.id}}" class="blog-popular-post">
                                         <img class="blog-post-image" src="{{post.imageUrl}}" alt="">
@@ -118,9 +117,7 @@
                                             <span class="blog-author-name ">{{translations['post10']}} <ins>{{post.author.username}}</ins></span>
                                         </div>
                                     </a>
-                                </li>
-
-                                
+                                </li>                                
                             </ul>
                         </div>
                     </div>

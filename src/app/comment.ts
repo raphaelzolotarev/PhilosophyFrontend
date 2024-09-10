@@ -7,5 +7,3 @@ export interface Comment {
     post: Post;
     text: string;
 }
-
-

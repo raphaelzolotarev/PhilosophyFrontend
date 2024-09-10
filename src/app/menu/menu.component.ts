@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet, RouterModule, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TRANSLATION_EN } from '../translation';
@@ -24,7 +24,6 @@ export class MenuComponent {
   public isAuthenticated: boolean = false;
   public translations: { [key: string]: string }  = TRANSLATION_EN;
   public selectedLang: string = 'EN';
-
   
   //CONSTRUCTOR
   constructor(private translationService: TranslationService, private postService: PostService, private authenticationService: AuthenticationService, private userService: UserService, private router: Router) {}
@@ -43,7 +42,7 @@ export class MenuComponent {
   }
 
   //CHANGE LAGUAGE
-  public onLanguageClick(lang: string): void { 
+  onLanguageClick(lang: string): void { 
     this.translationService.switchLanguage(lang.toUpperCase());
     this.authenticationService.isAuthenticated$.subscribe(isAuthenticated => {
       if(isAuthenticated){
@@ -56,7 +55,7 @@ export class MenuComponent {
   }
 
   //LOGOUT
-  public onLogoutClick(): void{
+  onLogoutClick(): void{
       this.authenticationService.logout();
       this.router.navigate(['/']).then(() => {
         window.location.reload();
@@ -79,6 +78,7 @@ export class MenuComponent {
     }
   }
 
+  //search
   searchPosts(keyword: string | null): void {
     if (keyword == null) keyword = "";
     this.router.navigate(['/blog'], { queryParams: { search: keyword } });

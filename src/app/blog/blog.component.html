@@ -22,31 +22,31 @@
             <div class="row">					
                 
                 <ng-container *ngFor="let post of allPosts" >
-                <div class="col-lg-4 col-md-6">
-                    <a [routerLink]="['/postdetails', post.id]" class="blog-item">
-                        <div class="card">
-                            <div class="blog-img">								
-                                <img src="{{post.imageUrl}}" alt="">
-                            </div>
-                            <div class="card-content">
-                                <span class="blog-badge-cate">{{post.category}}</span>
-                                <h3 class="blog-title">{{post.title}}</h3>
-                                <p class="blog-description">{{post.description}}</p>
-                            </div>
-                            <div class="card-footer">
-                                <div class="blog-footer-dt">	
-                                    <div class="ttlcnt15 invtbyuser">
-                                        <div class="invited_avtar_ee">
-                                            <img class="ft-plus-square evnt-invite-circle bg-cyan me-0" src="{{post.author.profilePhoto}}" alt="">
+                    <div class="col-lg-4 col-md-6">
+                        <a [routerLink]="['/postdetails', post.id]" class="blog-item">
+                            <div class="card">
+                                <div class="blog-img">								
+                                    <img src="{{post.imageUrl}}" alt="">
+                                </div>
+                                <div class="card-content">
+                                    <span class="blog-badge-cate">{{post.category}}</span>
+                                    <h3 class="blog-title">{{post.title}}</h3>
+                                    <p class="blog-description">{{post.description}}</p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="blog-footer-dt">	
+                                        <div class="ttlcnt15 invtbyuser">
+                                            <div class="invited_avtar_ee">
+                                                <img class="ft-plus-square evnt-invite-circle bg-cyan me-0" src="{{post.author.profilePhoto}}" alt="">
+                                            </div>
+                                            <span class="evntcunt">{{post.author.username}}</span>
                                         </div>
-                                        <span class="evntcunt">{{post.author.username}}</span>
+                                        <span class="blog-date"><i class="fa-solid fa-calendar-days"></i> {{post.createdAt | date:'dd/MM/yyyy'}}</span>
                                     </div>
-                                    <span class="blog-date"><i class="fa-solid fa-calendar-days"></i> {{post.createdAt | date:'dd/MM/yyyy'}}</span>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </div>
                 </ng-container>
                 
             </div>

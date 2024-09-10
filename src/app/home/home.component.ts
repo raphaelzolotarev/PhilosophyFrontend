@@ -11,6 +11,7 @@ import { TranslationService } from '../translation.service';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
+
 export class HomeComponent{
 
   public translations: { [key: string]: string }  = TRANSLATION_EN;

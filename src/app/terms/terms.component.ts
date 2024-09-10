@@ -11,7 +11,9 @@ import { TranslationService } from '../translation.service';
   templateUrl: './terms.component.html',
   styleUrl: './terms.component.scss'
 })
+
 export class TermsComponent {
+  
   public translations: { [key: string]: string }  = TRANSLATION_EN;
 
   constructor(private translationService: TranslationService) {    
